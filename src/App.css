@@ -46,12 +46,14 @@ html {
   background: var(--color-background);
   color: var(--color-maintext);
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
 }
 
 .root {
+  width: 100%;
+}
+
+main {
   width: 100%;
 }
 
@@ -64,38 +66,38 @@ a::after {
   color: var(--color-headertext);
 }
 
+
 /* HEADER ITEMS */
 
 .header {
   font-family: "Roboto Mono";
   color: var(--color-headertext);
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
   width: 100%;
-  padding: 12px;
+  
 }
 
 .logoheader__wrapper {
   display: flex;
   align-items: center;
-  padding-right: 260px;
-  width: 100%;
+  justify-content: flex-start;
+  
 }
 
 .logosymbol__wrapper {
-  padding: 12px 24px;
+  padding: 16px;
 }
 
 .logoname__wrapper {
-  padding: 0px 12px;
+
 }
 
 .logo__name {
   font-size: 32px;
-}
-
-.logo {
 }
 
 .logo__symbol {
@@ -103,35 +105,74 @@ a::after {
   color: var(--color-headertext);
 }
 
-.logo__tagline {
-}
-
 .nav {
   display: flex;
-  width: 65%;
   justify-content: flex-end;
   align-items: center;
+  gap: 48px;
 }
 
 .navlink {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 24px;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 1px;
 }
 
 .toggle__wrapper {
-  padding: 0px 32px;
-  align-items: center;
+  padding: 20px;
   display: flex;
-}
-
-.theme-toggle {
+  align-items: center;
 }
 
 .brighticon {
   color: var(--color-headertext);
   font-size: 28px;
+}
+
+
+/* HERO */
+
+.hero__wrapper {
+  display: flex;
+  width: 100%;
+  
+}
+
+.hero {
+  min-height: 600px;
+
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+
+  align-items: center;
+
+  
+}
+
+.hero__content {
+
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.1;
+}
+
+.hero h1 span {
+  color: var(--accent-rust);
+}
+
+.hero__image {
+  height: 100%;
+
+  background-image:
+    linear-gradient(
+      to right,
+      var(--background) 0%,
+      transparent 30%
+    ),
+    url("/images/hero-light.jpg");
+
+  background-size: cover;
+  background-position: center;
 }

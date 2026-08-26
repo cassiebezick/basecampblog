@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import './App.css'
 import Header from "./components/Header";
+import Hero from "./components/Hero"
 
 function App() {
   return (
     <div className="page__wrapper">
-      <Header />
-
+        <Header />
       <main>
-        {/* <Hero />
-        <FeaturedPost />
+        <div className='hero__wrapper'>
+         <Hero />
+         </div>
+       {/* <FeaturedPost />
         <LatestPosts /> */}
       </main>
 
