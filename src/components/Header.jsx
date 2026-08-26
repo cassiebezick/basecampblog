@@ -1,27 +1,33 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun } from '@fortawesome/free-regular-svg-icons';
+import { Toggle } from '@react-ui-org/react-ui';
+
 function Header() {
   return (
     <header className="header">
-      <a href="/" className="logo">
-        <span className="logo__symbol">&lt;/&gt;</span>
-
-        <div>
+      <div className="logoheader__wrapper">
+        <div className="logosymbol__wrapper">
+          <span className="logo__symbol">&lt;/&gt;</span>
+        </div>{/*-- end logosymbol__wrapper div */}
+        <div className="logoname__wrapper">
           <p className="logo__name">CASSIE CODES</p>
           <p className="logo__tagline">
-            BASECAMP: FRONT-END DEV 🌲
+            BASECAMP: LEARNING TO CODE
           </p>
-        </div>
-      </a>
+        </div>{/*-- end logoname__wrapper */}
+      </div>{/* -- end logoheader__wrapper -- */}
 
       <nav className="nav">
-        <a href="/">Home</a>
-        <a href="/articles">Articles</a>
-        <a href="/projects">Projects</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-
-        <button className="theme-toggle">
-          ☾
-        </button>
+        <a href="/" className="navlink">HOME</a>
+        <a href="/articles" className="navlink">ARTICLES</a>
+        <a href="/projects" className="navlink">PROJECTS</a>
+        <a href="/about" className="navlink">ABOUT</a>
+        <a href="/contact" className="navlink">CONTACT</a>
+       <div className="toggle__wrapper">
+          <FontAwesomeIcon icon={faSun} className='brighticon'/>
+          <button className="theme-toggle">
+          </button>
+        </div>
       </nav>
     </header>
   );

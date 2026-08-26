@@ -1,20 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-
+/* Roboto Mono for Logo, Navigation, Mile Marker Labels */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+/* Libre Baskerville for Large Headings */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap");
+/* Shadows into the light - Option 2 for Headings */
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap");
+/* Inter for Body */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap");
 
 :root {
-  --cream: #F4EEE4;
-  --paper: #E9DFD1;
-  --sand: #D4C6B4;
+  --color-background: #f4eee4;
+  --color-headertext: #234a40;
+  --color-maintext: #1c1c19;
 
-  --charcoal: #1C1C19;
+  --cream: #f4eee4;
+  --paper: #e9dfd1;
+  --sand: #d4c6b4;
 
-  --evergreen: #234A40;
-  --deep-pine: #173A33;
-  --sage: #6F8073;
+  --charcoal: #1c1c19;
 
-  --rust: #A55232;
-  --clay: #B66A45;
+  --evergreen: #234a40;
+  --deep-pine: #173a33;
+  --sage: #6f8073;
 
-  --mist: #A8AEA7;
+  --rust: #a55232;
+  --clay: #b66a45;
+
+  --mist: #a8aea7;
+
+
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.page__wrapper {
+  background: var(--color-background);
+  color: var(--color-maintext);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-headertext);
+}
+
+a::after {
+  color: var(--color-headertext);
+}
+
+/* HEADER ITEMS */
+
+.header {
+  font-family: "Roboto Mono";
+  color: var(--color-headertext);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.logoheader__wrapper {
+  display: flex;
+  align-items: center;
+  padding-right: 260px;
+  width: 100%;
+}
+
+.logosymbol__wrapper {
+  padding: 12px 24px;
+}
+
+.logoname__wrapper {
+  padding: 0px 12px;
+}
+
+.logo__name {
+  font-size: 32px;
+}
+
+.logo {
+}
+
+.logo__symbol {
+  font-size: 48px;
+  color: var(--color-headertext);
+}
+
+.logo__tagline {
+}
+
+.nav {
+  display: flex;
+  width: 65%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navlink {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 24px;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.toggle__wrapper {
+  padding: 0px 32px;
+  align-items: center;
+  display: flex;
+}
+
+.theme-toggle {
+}
+
+.brighticon {
+  color: var(--color-headertext);
+  font-size: 28px;
+}

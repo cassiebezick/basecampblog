@@ -1,23 +1,19 @@
 import { useState } from 'react'
 import './App.css'
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import FeaturedPost from "./components/FeaturedPost";
-import LatestPosts from "./components/LatestPosts";
-import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div>
+    <div className="page__wrapper">
       <Header />
 
       <main>
-        <Hero />
+        {/* <Hero />
         <FeaturedPost />
-        <LatestPosts />
+        <LatestPosts /> */}
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
