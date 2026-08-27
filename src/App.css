@@ -12,7 +12,7 @@
   --color-headertext: #234a40;
   --color-maintext: #1c1c19;
 
-  --cream: #f4eee4;
+  --cream: #f8F6F1;
   --paper: #e9dfd1;
   --sand: #d4c6b4;
 
@@ -592,7 +592,7 @@ a::after {
 
 .footer {
   color: var(--charcoal);
-  background-color: var(--color-background);
+  background-color: var(--cream);
   border-top: 1px solid var(--sand);
 }
 
@@ -604,6 +604,14 @@ a::after {
   width: calc(100% - 96px);
   margin: 0 auto;
   padding: 52px 0 48px;
+
+  background-image: url(../src/assets/footer-landscape.png);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% auto;
+  z-index: 0;
+
+  padding-bottom: 200px;
 }
 
 .footer__column:not(:first-child) {
