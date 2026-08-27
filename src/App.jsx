@@ -4,6 +4,9 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import ProgressTrail from "./components/ProgressTrail";
 import FeaturedPost from "./components/FeaturedPost";
+import LatestPosts from "./components/LatestPosts";
+import Footer from "./components/Footer";
+
 
 function App() {
   return (
@@ -17,10 +20,9 @@ function App() {
         </div>
           <ProgressTrail />
           <FeaturedPost />
-         {/*<LatestPosts /> */}
-      </main>
-
-      {/* <Footer /> */}
+          <LatestPosts />
+        </main>
+          <Footer /> 
     </div>
   );
 }
