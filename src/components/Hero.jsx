@@ -1,3 +1,4 @@
+import bootImage from "../assets/boot.png"
 
 
 function Hero() {
@@ -11,7 +12,7 @@ function Hero() {
         <h1>
           Learning to code,
           <br />
-          one <span>trail</span> at a time.
+          one <span>step</span> at a time.
         </h1>
 
         <p className="hero__description">
@@ -20,9 +21,10 @@ function Hero() {
         </p>
 
         <a href="/articles" className="button">
-          🥾 Start Hiking →
+          <img src={bootImage} alt="" height="30px" className="boot__img"/>
+          START HIKING →
         </a>
-      </div>
+      </div> {/* END hero__content div*/}
 
       <div className="hero__image"></div>
     </section>

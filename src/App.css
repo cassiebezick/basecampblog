@@ -1,14 +1,14 @@
 /* Roboto Mono for Logo, Navigation, Mile Marker Labels */
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
-/* Libre Baskerville for Large Headings */
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap");
+/* Noto Serif for Large Headings */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 /* Shadows into the light - Option 2 for Headings */
 @import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap");
 /* Inter for Body */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap");
 
 :root {
-  --color-background: #f4eee4;
+  --color-background: #FCFAF8;
   --color-headertext: #234a40;
   --color-maintext: #1c1c19;
 
@@ -37,21 +37,28 @@
 }
 
 html {
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  background-image: url("./assets/topobackground.png");
+}
+
+body {
+  width: 100%;
+}
+
+#root {
   width: 100%;
 }
 
 .page__wrapper {
-  background: var(--color-background);
-  color: var(--color-maintext);
-  width: 100%;
+ width: 100%;
+ max-width: 2200px;
+ margin-inline: auto;
 
+ background: var(--color-background);
+ color: var(--color-maintext);
 }
 
-.root {
-  width: 100%;
-}
+
 
 main {
   width: 100%;
@@ -89,7 +96,7 @@ a::after {
 }
 
 .logosymbol__wrapper {
-  padding: 16px;
+  padding: 24px 48px;
 }
 
 .logoname__wrapper {
@@ -130,7 +137,7 @@ a::after {
 }
 
 
-/* HERO */
+/* HERO ITEMS */
 
 .hero__wrapper {
   display: flex;
@@ -139,40 +146,313 @@ a::after {
 }
 
 .hero {
-  min-height: 600px;
+  min-height: 50vh;
 
   display: grid;
   grid-template-columns: 1fr 1.4fr;
 
-  align-items: center;
-
+  align-items: stretch;
   
+  color: var(--color-headertext);
 }
 
 .hero__content {
+  padding: 72px 48px;
+}
 
+.hero__eyebrow {
+  font-family: "Shadows Into Light Two";
+  color: var(--color-headertext);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+
+  padding-bottom: 32px;
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 5vw, 5rem);
+  font-family: "Noto Serif";
+  font-size: clamp(2.7rem, 4vw, 5rem);
   line-height: 1.1;
+  color: var(--color-headertext);
+  font-weight: 500;
+
+  padding-bottom: 48px;
 }
 
 .hero h1 span {
-  color: var(--accent-rust);
+  color: var(--rust);
+}
+
+.hero__description {
+  font-family: "Inter";
+  font-size: 22px;
+  font-weight: 500;
+  padding-bottom: 64px;
+}
+
+.button {
+  font-family: "Inter";
+  background-color: var(--evergreen);
+  color: white;
+  font-size: 22px;
+  letter-spacing: 1.2px;
+  font-family: "Roboto Mono";
+  padding: 18px 24px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  max-width: 320px;
+}
+
+.boot__img {
+  margin-right: 20px;
+  
 }
 
 .hero__image {
-  height: 100%;
-
+  min-height: 600px;
+  background-color: var(--color-background);
+  
   background-image:
+
+    /* fade bottom of image */
+    linear-gradient(
+      to bottom,
+      transparent 80%,
+      var(--color-background) 100%
+    ),
+
+    /* fade left side of image */
     linear-gradient(
       to right,
-      var(--background) 0%,
-      transparent 30%
+      var(--color-background) 0%,
+      transparent 20%
     ),
-    url("/images/hero-light.jpg");
+
+    /* actual image */
+    url("./assets/heroimageblog.png");
+    margin-bottom: -3px;
 
   background-size: cover;
   background-position: center;
+}
+
+
+/* PROGRESS TRAIL */
+
+.progress-trail {
+  width: 100%;
+
+  background-color: var(--color-background);
+  min-height: 360px;
+
+  background-image: url("");
+  
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% auto;
+
+  padding: 12px 48px;
+}
+
+
+.section-label {
+  font-family: "Shadows Into Light Two";
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--evergreen);
+  margin-bottom: 64px;
+}
+
+.trail {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  position: relative;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  min-height: 80px;
+}
+
+.trail__waypoint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.trail__marker {
+  width: 18px;
+  height: 18px;
+
+  background-color: var(--clay);
+
+  border: 4px solid var(--evergreen);
+  border-radius: 50%;
+
+  margin-bottom: 16px;
+}
+
+.trail__waypoint h3 {
+  font-family: "Roboto Mono";
+  color: var(--evergreen);
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.trail__waypoint p {
+  font-family: "Inter";
+  font-size: 14px;
+  color: var(--charcoal);
+  margin-bottom: 4px;
+}
+
+.trail__waypoint span {
+  font-family: "Roboto Mono";
+  font-size: 12px;
+  color: var(--sage);
+}
+
+.trail::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 76px;
+
+  height: 3px;
+  background-color: var(--sage);
+
+  z-index: 1;
+}
+
+
+/* FEATURED POST */
+
+.featured-post {
+  width: calc(100% - 96px);
+  margin: 0 auto 64px;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(400px, 1.2fr);
+  gap: 48px;
+  align-items: center;
+
+  border: 1px solid var(--sand);
+  border-radius: 14px;
+}
+
+.featured-post__image-wrapper {
+  position: relative;
+}
+
+.featured-post__label {
+  position: absolute;
+  top: -12px;
+  left: 8px;
+  z-index: 1;
+
+  padding: 10px 16px;
+
+  background-color: var(--rust);
+  color: white;
+  border-radius: 6px;
+
+  font-family: "Roboto Mono";
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.featured-post__image {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.featured-post__content {
+  padding-right: 24px;
+}
+
+.featured-post__eyebrow {
+  margin-bottom: 20px;
+
+  color: var(--evergreen);
+  font-family: "Roboto Mono";
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.featured-post__content h2 {
+  margin-bottom: 16px;
+
+  color: var(--charcoal);
+  font-family: "Noto Serif";
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.featured-post__excerpt {
+  margin-bottom: 32px;
+
+  font-family: "Inter";
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.featured-post__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.featured-post__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  font-family: "Inter";
+  font-size: 14px;
+}
+
+.featured-post__link {
+  white-space: nowrap;
+
+  color: var(--evergreen);
+  font-family: "Roboto Mono";
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@media (max-width: 850px) {
+  .featured-post {
+    width: calc(100% - 40px);
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .featured-post__content {
+    padding: 0;
+  }
+
+  .featured-post__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
