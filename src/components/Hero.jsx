@@ -1,32 +1,24 @@
-import bootImage from "../assets/boot.png"
-
-
 function Hero() {
   return (
     <section className="hero">
       <div className="hero__content">
         <p className="hero__eyebrow">
-          Welcome to basecamp ♡
+          FRONT-END
         </p>
 
         <h1>
-          Learning to code,
-          <br />
-          one <span>step</span> at a time.
+          Code. Explore. Grow.
         </h1>
 
         <p className="hero__description">
-          Front-end development, projects, lessons learned,
-          and occasional adventures from Alaska.
+          Hey, I'm Cassie! Welcome to basecamp!  I'm documenting my journey into front-end development, one project, wrong turn, breakthrough and new concept at a time.
         </p>
 
-        <a href="/articles" className="button">
-          <img src={bootImage} alt="" height="30px" className="boot__img"/>
-          START HIKING →
+        <a href="/articles" className="hero__button">
+          HIT THE TRAIL
+          <span aria-hidden="true">→</span>
         </a>
-      </div> {/* END hero__content div*/}
-
-      <div className="hero__image"></div>
+      </div>
     </section>
   );
 }

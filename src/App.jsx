@@ -13,12 +13,12 @@ function App() {
     <div className="page__wrapper">
         <Header />
         
-        <main>
-
-        <div className='hero__wrapper'>
-          <Hero />
-        </div>
-          <ProgressTrail />
+ <main>
+  <div className="hero-trail__wrapper">
+    <Hero />
+    <ProgressTrail />
+  </div>
+         
           <FeaturedPost />
           <LatestPosts />
         </main>
