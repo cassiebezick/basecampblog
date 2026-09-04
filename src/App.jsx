@@ -1,28 +1,34 @@
-import { useState } from 'react';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+
+import HomePage from "./pages/HomePage";
+import BlogPage from "./pages/BlogPage.jsx";
+import BlogPostPage from "./pages/BlogPostPage.jsx";
+
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import ProgressTrail from "./components/ProgressTrail";
-import FeaturedPost from "./components/FeaturedPost";
-import LatestPosts from "./components/LatestPosts";
 import Footer from "./components/Footer";
 
+import "./App.css";
 
 function App() {
   return (
     <div className="page__wrapper">
-        <Header />
-        
- <main>
-  <div className="hero-trail__wrapper">
-    <Hero />
-    <ProgressTrail />
-  </div>
-         
-          <FeaturedPost />
-          <LatestPosts />
-        </main>
-          <Footer /> 
+      <Header />
+
+      <Routes>
+         {/* REMEMBER: Only Route components belong here */}
+        <Route 
+          path="/" 
+          element={<HomePage />} />
+        <Route 
+          path="/blog" 
+          element={<BlogPage />} />
+        <Route
+          path="/blog/:slug"
+          element={<BlogPostPage />}
+        />
+      </Routes>
+
+      <Footer />
     </div>
   );
 }

@@ -11,16 +11,14 @@ function Header() {
         </div>{/*-- end logosymbol__wrapper div */}
         <div className="logoname__wrapper">
           <p className="logo__name">CASSIE CODES</p>
-          <p className="logo__tagline">
-            BASECAMP: LEARNING TO CODE
-          </p>
+          <p className="logo__tagline">BASECAMP: LEARNING TO CODE</p>
         </div>{/*-- end logoname__wrapper */}
       </div>{/* -- end logoheader__wrapper -- */}
 
       <nav className="nav">
         <a href="/" className="navlink">HOME</a>
         <a href="/articles" className="navlink">ARTICLES</a>
-        <a href="/projects" className="navlink">PROJECTS</a>
+        <a href="https://cassiebezick.github.io/modernized-e-portfolio/" className="navlink" target='_blank'>PORTFOLIO</a>
         <a href="/about" className="navlink">ABOUT</a>
         <a href="/contact" className="navlink">CONTACT</a>
        <div className="toggle__wrapper">

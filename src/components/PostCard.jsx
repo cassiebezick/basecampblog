@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function PostCard({ post }) {
   return (
     <article className="post-card">
@@ -26,12 +28,17 @@ function PostCard({ post }) {
           <span>{post.comments} comments</span>
         </div>
 
-        <a
+        <Link to="/blog/:slug">
+          Read the trail notes
+        </Link>
+
+
+        {/* <a
           className="post-card__link"
           href={`/articles/${post.slug}`}
         >
           Continue Hiking →
-        </a>
+        </a> */}
       </div>
     </article>
   );

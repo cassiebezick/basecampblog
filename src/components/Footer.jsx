@@ -23,7 +23,7 @@ function Footer() {
           </h2>
 
           <p className="footer__description">
-            I’m Cassie—a front-end developer in training,
+            I’m Cassie - a front-end developer in training,
             coffee enthusiast, and Alaska adventurer. This is
             where I write about code, projects, lessons learned,
             and life along the way.
@@ -31,7 +31,7 @@ function Footer() {
 
           <div className="footer__socials">
             <a
-              href="https://github.com/your-username"
+              href="https://github.com/cassiebezick"
               aria-label="Visit Cassie's GitHub"
               target="_blank"
               rel="noreferrer"
@@ -40,7 +40,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://linkedin.com/in/your-username"
+              href="https://www.linkedin.com/in/cassandra-bezick/"
               aria-label="Visit Cassie's LinkedIn"
               target="_blank"
               rel="noreferrer"
@@ -49,7 +49,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://instagram.com/your-username"
+              href="https://instagram.com/cassiehttps://www.linkedin.com/in/cassandra-bezick/outside"
               aria-label="Visit Cassie's Instagram"
               target="_blank"
               rel="noreferrer"
@@ -58,7 +58,7 @@ function Footer() {
             </a>
 
             <a
-              href="mailto:you@example.com"
+              href="cassiebezick@gmail.com"
               aria-label="Email Cassie"
             >
               <FontAwesomeIcon icon={faEnvelope} />
@@ -72,29 +72,14 @@ function Footer() {
           </h2>
 
           <p className="footer__description">
-            Get new posts, coding tips, and Alaska adventures
-            delivered to your inbox.
+              I’m currently open to new opportunities and collaborations. 
+              Let’s build something thoughtful, responsive, and user-friendly together.
           </p>
 
-          <form className="footer__form">
-            <label
-              className="sr-only"
-              htmlFor="subscriber-email"
-            >
-              Email address
-            </label>
+          <a href="/articles" className="footer__button">
+          Let's Talk&nbsp;
+          <span aria-hidden="true">→</span></a>
 
-            <input
-              id="subscriber-email"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-            />
-
-            <button type="button">
-              Subscribe
-            </button>
-          </form>
         </div>
 
         <nav
@@ -114,9 +99,9 @@ function Footer() {
             </li>
 
             <li>
-              <a href="/projects">
+              <a href="https://cassiebezick.github.io/modernized-e-portfolio/">
                 <FontAwesomeIcon icon={faChevronRight} />
-                Projects
+                My Portfolio
               </a>
             </li>
 
