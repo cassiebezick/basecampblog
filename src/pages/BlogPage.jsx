@@ -1,107 +1,47 @@
-import { useParams, Link } from "react-router-dom";
+import { useState } from "react";
+import FeaturedPost from "../components/FeaturedPost";
+import PostCard from "../components/PostCard";
 import { postsData } from "../data/posts.jsx";
 
-import BlogContent from "../components/BlogContent";
-import ArticleTrailNav from "../components/ArticleTrailNav";
-
-import "./BlogPostPage.css";
-
-function BlogPostPage() {
-  const { slug } = useParams();
-
-  const post = postsData.find(
-    (post) => post.slug === slug
-  );
-
-  if (!post) {
-    return (
-      <main className="blog-post__not-found">
-        <h1>Trail Not Found</h1>
-        <Link to="/blog">Return to Basecamp</Link>
-      </main>
-    );
-  }
-
-  const content = post.content ?? [];
+function BlogPage() {
+  const [category, setCategory] = useState("All");
+  const categories = ["All", ...new Set(postsData.map((post) => post.category))];
+  const posts = postsData.filter((post) => category === "All" || post.category === category);
 
   return (
-    <main className="blog-post">
-
-      {/* ARTICLE HEADER */}
-
-      <header className="blog-post__header">
-
-        <div className="blog-post__header-inner">
-
-          <div className="blog-post__breadcrumb">
-            <Link to="/">BASECAMP</Link>
-            <span>/</span>
-            <Link to="/blog">ARTICLES</Link>
-            <span>/</span>
-            <span>
-              MILE MARKER {post.mileMarker}
-            </span>
-          </div>
-
-          <div className="blog-post__eyebrow">
-            MILE MARKER {post.mileMarker}
-            <span> • </span>
-            {post.category}
-          </div>
-
-          <h1>{post.title}</h1>
-
-          <p className="blog-post__excerpt">
-            {post.excerpt}
-          </p>
-
-          <div className="blog-post__meta">
-
-            <div className="blog-post__author">
-              <span>By Cassie</span>
-              {post.date && <span>• {post.date}</span>}
-            </div>
-
-            <div className="blog-post__stats">
-              <span>⛰ {post.elevation}</span>
-              <span>◷ {post.readTime}</span>
-            </div>
-
-          </div>
-
-        </div>
-
+    <main className="articles-page">
+      <header>
+        <h1>Notes from the Trail</h1>
+        <p>One concept, one project, and one mile marker at a time.</p>
       </header>
 
-      {/* ARTICLE LAYOUT */}
+      {category === "All" && (
+        <div className="articles-page__featuredpost">
+          <FeaturedPost />
+        </div>
+      )}
 
-      <div className="blog-post__layout">
-
-        {/* LEFT TRAIL NAVIGATION */}
-
-        <ArticleTrailNav content={content} />
-
-        {/* MAIN ARTICLE */}
-
-        <article className="blog-post__article">
-
-          {post.image && (
-            <div className="blog-post__featured-image">
-              <img
-                src={post.image}
-                alt={post.imageAlt || post.title}
-              />
-            </div>
-          )}
-
-          <BlogContent content={content} />
-
-        </article>
-
-      </div>
-
+      <section aria-labelledby="all-articles-title">
+        <h2 id="all-articles-title">All Articles</h2>
+        <div className="headerbutton__container" role="group" aria-label="Filter articles by category">
+          {categories.map((item) => (
+            <button
+              key={item}
+              type="button"
+              className={`headerbutton${category === item ? " headerbutton--active" : ""}`}
+              aria-pressed={category === item}
+              onClick={() => setCategory(item)}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+        <div className="articles-page__grid">
+          {posts.map((post) => <PostCard key={post.id} post={post} />)}
+        </div>
+      </section>
     </main>
   );
 }
 
-export default BlogPostPage;
+export default BlogPage;
