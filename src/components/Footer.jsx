@@ -76,7 +76,7 @@ function Footer() {
               Let’s build something thoughtful, responsive, and user-friendly together.
           </p>
 
-          <a href="/articles" className="footer__button">
+          <a href="mailto:cassiebezick@gmail.com" className="footer__button">
           Let's Talk&nbsp;
           <span aria-hidden="true">→</span></a>
 
@@ -92,7 +92,7 @@ function Footer() {
 
           <ul className="footer__links">
             <li>
-              <a href="/articles">
+              <a href="/blog">
                 <FontAwesomeIcon icon={faChevronRight} />
                 Articles
               </a>

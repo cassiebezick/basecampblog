@@ -1,4 +1,6 @@
 import { postsData } from "../data/posts";
+import { Link } from "react-router-dom";
+
 
 function FeaturedPost() {
   const featuredPost = postsData.find((post) => post.featured);
@@ -38,13 +40,13 @@ function FeaturedPost() {
             <span>◷ {featuredPost.readTime}</span>
             <span>▢ {featuredPost.comments} comments</span>
           </div>
-
-          <a
-            className="featured-post__link"
-            href={`/articles/${featuredPost.slug}`}
-          >
-            Continue Hiking →
-          </a>
+        
+        <Link
+          className="featured-post__link"
+          to={`/blog/${featuredPost.slug}`}
+        >
+          Continue Hiking →
+        </Link>
         </div>
       </div>
     </section>

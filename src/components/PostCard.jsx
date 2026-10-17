@@ -6,7 +6,7 @@ function PostCard({ post }) {
       <img
         className="post-card__image"
         src={post.image}
-        alt=""
+        alt={post.imageAlt || ""}
       />
 
       <div className="post-card__content">
@@ -28,17 +28,12 @@ function PostCard({ post }) {
           <span>{post.comments} comments</span>
         </div>
 
-        <Link to="/blog/:slug">
+        <Link 
+          className="post-card__link"
+          to= { `/blog/${post.slug}` }>
           Read the trail notes
         </Link>
 
-
-        {/* <a
-          className="post-card__link"
-          href={`/articles/${post.slug}`}
-        >
-          Continue Hiking →
-        </a> */}
       </div>
     </article>
   );

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from '@fortawesome/free-regular-svg-icons';
-
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -16,14 +16,33 @@ function Header() {
       </div>{/* -- end logoheader__wrapper -- */}
 
       <nav className="nav">
-        <a href="/" className="navlink">HOME</a>
-        <a href="/articles" className="navlink">ARTICLES</a>
+        <NavLink to="/" className="navlink">
+          HOME
+        </NavLink>
+
+        <NavLink to="/blog" className="navlink">
+          ARTICLES
+        </NavLink>
+
         <a href="https://cassiebezick.github.io/modernized-e-portfolio/" className="navlink" target='_blank'>PORTFOLIO</a>
-        <a href="/about" className="navlink">ABOUT</a>
-        <a href="/contact" className="navlink">CONTACT</a>
+        
+        <NavLink to="/about" className="navlink">
+          ABOUT
+        </NavLink>
+
+        <NavLink to="/contact" className="navlink">
+          CONTACT
+        </NavLink>
+
        <div className="toggle__wrapper">
-          <FontAwesomeIcon icon={faSun} className='brighticon'/>
-          <button className="theme-toggle">
+          <FontAwesomeIcon 
+          icon={faSun} 
+          className='brighticon'
+          />
+
+          <button 
+          className="theme-toggle"
+          aria-label="Change color theme">
           </button>
         </div>
       </nav>
