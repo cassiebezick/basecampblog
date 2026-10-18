@@ -2,6 +2,7 @@ import { useState } from "react";
 import FeaturedPost from "../components/FeaturedPost";
 import PostCard from "../components/PostCard";
 import { postsData } from "../data/posts.jsx";
+import "./BlogPage.css"
 
 function BlogPage() {
   const [category, setCategory] = useState("All");
@@ -11,18 +12,12 @@ function BlogPage() {
   return (
     <main className="articles-page">
       <header>
-        <h1>Notes from the Trail</h1>
-        <p>One concept, one project, and one mile marker at a time.</p>
+        <h3>FIELD NOTES FROM THE TRAIL</h3>
+        <h1>Articles from Basecamp</h1>
+        <p className="blogheader__para">Lessons, discoveries, and real experiences from my journey learning frontend development.  Each post is a mile marker on the trail - a step forward, a new view, and a reminder that progress happens one small climb at a time.</p>
       </header>
 
-      {category === "All" && (
-        <div className="articles-page__featuredpost">
-          <FeaturedPost />
-        </div>
-      )}
-
       <section aria-labelledby="all-articles-title">
-        <h2 id="all-articles-title">All Articles</h2>
         <div className="headerbutton__container" role="group" aria-label="Filter articles by category">
           {categories.map((item) => (
             <button
@@ -36,6 +31,13 @@ function BlogPage() {
             </button>
           ))}
         </div>
+
+
+        <div className="articles-page__featuredpost">
+          <FeaturedPost />
+        </div>
+
+
         <div className="articles-page__grid">
           {posts.map((post) => <PostCard key={post.id} post={post} />)}
         </div>

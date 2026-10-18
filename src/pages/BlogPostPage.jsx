@@ -1,7 +1,11 @@
 import { useParams, Link } from "react-router-dom";
 import { postsData } from "../data/posts.jsx";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMountain } from "@fortawesome/free-solid-svg-icons";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
 import BlogContent from "../components/BlogContent";
 import ArticleTrailNav from "../components/ArticleTrailNav";
+import authorImage from "../assets/me.jpg";
 import "./BlogPostPage.css";
 
 function BlogPostPage() {
@@ -22,12 +26,43 @@ function BlogPostPage() {
       <div className="blog-post__layout">
         <ArticleTrailNav key={post.slug} content={content} />
         <article className="blog-post__article">
-          <nav className="blog-post__breadcrumb" aria-label="Breadcrumb"><Link to="/">Basecamp</Link><span aria-hidden="true">/</span><Link to="/blog">Articles</Link><span aria-hidden="true">/</span><span>Mile Marker {post.mileMarker}</span></nav>
+          <nav className="blog-post__breadcrumb" aria-label="Breadcrumb">
+            <Link to="/">Basecamp</Link>
+            <span aria-hidden="true">/</span>
+            <Link to="/blog">Articles</Link>
+            <span aria-hidden="true">/</span>
+            <span>Mile Marker {post.mileMarker}</span>
+          </nav>
+
           <header className="blog-post__header">
             <p className="blog-post__eyebrow">Mile Marker {post.mileMarker} · {post.category}</p>
             <h1>{post.title}</h1>
             <p className="blog-post__excerpt">{post.excerpt}</p>
-            <div className="blog-post__meta"><span>By <strong>{post.author || "Cassie"}</strong>{post.date && <> · {post.date}</>}</span><span>Elevation: {post.elevation}</span><span>{post.readTime}</span></div>
+            <div className="blog-post__meta">
+
+            <div className="blog-post__author-container">
+              <img className="blog-post__author-image" src={authorImage} alt="Cassie" />
+              <span>
+                By <strong>{post.author || "Cassie"}</strong>
+              {post.date && <> · {post.date}</>}
+              </span>
+            </div>
+
+            
+            <div className="blog-post__details-container">
+              <div className="blog-post__elevationcontainer">
+              <FontAwesomeIcon className="blog-post__icon" icon={faMountain} />
+              <span>Elevation Gain: + {post.elevation}
+              </span>
+              </div>
+              |
+              <div className="blog-post__readtimecontainer">
+                <FontAwesomeIcon className="blog-post__icon" icon={faBook} />
+              <span>{post.readTime}</span>
+              </div>
+            </div>
+            
+            </div>
           </header>
           {post.image && <img className="blog-post__cover" src={post.image} alt={post.imageAlt || post.title} />}
           <BlogContent content={content} />

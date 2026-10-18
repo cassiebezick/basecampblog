@@ -16,6 +16,7 @@ export const postsData = [
     readTime: "3 MIN READ",
     comments: 0,
     featured: true,
+    date: "October 1, 2026",
     slug: "learning-to-code",
     content: [
   {
@@ -93,7 +94,7 @@ export const postsData = [
   {
     id: 4,
     mileMarker: 3,
-    category: "JavaScript",
+    category: "JAVASCRIPT",
     title: "JavaScript Recap",
     excerpt:
       "JavaScript RECAP",
@@ -107,7 +108,7 @@ export const postsData = [
   {
     id: 5,
     mileMarker: 8,
-    category: "JavaScript",
+    category: "JAVASCRIPT",
     title: "5 JavaScript Concepts I Struggled With",
     excerpt:
       "The JavaScript concepts that tripped me up—and the explanations and practice exercises that finally helped them make sense.",

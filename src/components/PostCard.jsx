@@ -14,9 +14,9 @@ function PostCard({ post }) {
           Mile Marker {post.mileMarker} • {post.category}
         </p>
 
-        <h3 className="post-card__title">
+        <h2 className="post-card__title">
           {post.title}
-        </h3>
+        </h2>
 
         <p className="post-card__excerpt">
           {post.excerpt}
