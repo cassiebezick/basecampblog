@@ -67,11 +67,34 @@ function BlogPostPage() {
           {post.image && <img className="blog-post__cover" src={post.image} alt={post.imageAlt || post.title} />}
           <BlogContent content={content} />
           {!content.length && <p className="blog-post__empty">This mile marker is still being written. Check back for notes from the trail.</p>}
-          <footer className="blog-post__author"><div><h2>Hi, I’m Cassie</h2><p>I’m learning front-end development and documenting the journey, one concept, one project, and one mile marker at a time.</p></div>{post.tags?.length > 0 && <ul aria-label="Post tags">{post.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>}</footer>
+          
+          <footer className="blog-post__author">
+          </footer>
+
+
           <nav className="blog-post__neighbors" aria-label="Previous and next articles">
-            {previous ? <Link to={`/blog/${previous.slug}`}><span>← Previous mile marker</span><strong>{previous.title}</strong></Link> : <div />}
-            {next && <Link to={`/blog/${next.slug}`}><span>Next mile marker →</span><strong>{next.title}</strong></Link>}
+        
+            {previous ? <Link to={`/blog/${previous.slug}`}>
+            <div className="previous__container">
+            <div className="previous__image"><img src={previous.image} className="previous__imgthumb"></img></div>
+            <div className="previous__text">
+            <span>← Previous mile marker</span>
+            <strong>{previous.title}</strong>
+            </div>
+            </div>
+            </Link> : <div />}
+
+            {next && <Link to={`/blog/${next.slug}`}>
+            <div className="next__container">
+            <div className="next__text">
+            <span>Next mile marker →</span>
+            <strong>{next.title}</strong>
+            </div>
+            <div className="previous__image"><img src={next.image} alt="" className="next__imgthumb" /></div>
+            </div>
+            </Link>}
           </nav>
+
           <Link className="blog-post__return" to="/blog">Continue down the trail →</Link>
         </article>
       </div>
