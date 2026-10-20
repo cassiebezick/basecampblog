@@ -2,7 +2,6 @@ import { useState } from "react";
 import FeaturedPost from "../components/FeaturedPost";
 import PostCard from "../components/PostCard";
 import { postsData } from "../data/posts.jsx";
-import "./BlogPage.css"
 
 function BlogPage() {
   const [category, setCategory] = useState("All");
