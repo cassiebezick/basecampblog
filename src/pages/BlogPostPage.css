@@ -19,8 +19,6 @@
   gap: 42px;
 }
 
-.blog-post__article {
-}
 
 .blog-post__breadcrumb {
   display: flex;
@@ -358,24 +356,132 @@
 }
 }
 
-@media (min-width: 400px) and (max-width:939px) {
+@media (min-width: 650px) and (max-width:939px){
+  .blog-post__layout {
+    gap: 12px;
+    grid-template-columns: 160px minmax(0,1fr);
+  }
+  .article-trail-nav__label {
+    font-size: 8px;
+  }
+  .article-trail-nav__item {
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    min-height: 40px;
+  }
+  .blog-post__breadcrumb {
+    font-size: 10px;
+  }
+  .blog-post__eyebrow {
+    font-size: 10px;
+  }
+  .blog-post__header h1 {
+    font-size: 32px;
+  }
+  .blog-post__excerpt {
+    font-size: 10px;
+    max-width: 360px;
+  }
+  .blog-post__meta {
+    font-size: 8px;
+    gap: 10px;
+  }
+  .blog-post__author-image {
+    width: 36px;
+    height: 36px;
+  }
+  .blog-post__icon {
+    font-size: 14px;
+    padding-right: 5px;
+  }
+  .blog-post__content h2 {
+    font-size: 16px;
+  }
+  .blog-post__content p {
+    font-size: 14px;
+  }
+  .blog-post__neighbors span {
+    font-size: 8px;
+    font-weight: 500;
+  }
+  .blog-post__neighbors strong {
+    font-size: 12px;
+  }
+  .previous__imgthumb {
+    display: none;
+  }
+  .next__imgthumb {
+    display: none;
+  }
+  .blog-post__return {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 100px) and (max-width:649px) {
   .blog-post__layout {
     display: block;
   }
   .article-trail-nav {
     display: none;
   }
-  .blog-post__meta {
-    gap: 6px;
+  .article-trail-nav__label {
+    font-size: 8px;
+  }
+  .article-trail-nav__item {
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    min-height: 40px;
+  }
+  .blog-post__breadcrumb {
+    font-size: 10px;
   }
   .blog-post__eyebrow {
-    font-size: 14px;
+    font-size: 10px;
   }
   .blog-post__header h1 {
-    font-size: 34px;
+    font-size: 32px;
   }
-  .blog-post__excerpt {
+    .blog-post__excerpt {
     display: none;
   }
-  
+  .blog-post__meta {
+    font-size: 8px;
+    gap: 6px;
+  }
+  .blog-post__author-image {
+    width: 36px;
+    height: 36px;
+  }
+  .blog-post__icon {
+    font-size: 14px;
+    padding-right: 5px;
+  }
+  .blog-post__content h2 {
+    font-size: 16px;
+  }
+  .blog-post__content p {
+    font-size: 14px;
+  }
+  .blog-post__neighbors span {
+    font-size: 8px;
+    font-weight: 500;
+  }
+  .blog-post__neighbors strong {
+    font-size: 12px;
+  }
+  .previous__imgthumb {
+    display: none;
+  }
+  .next__imgthumb {
+    display: none;
+  }
+  .blog-post__return {
+    font-size: 16px;
+  }
+
 }
