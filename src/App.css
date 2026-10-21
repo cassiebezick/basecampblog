@@ -52,7 +52,7 @@ body {
 
 .page__wrapper {
  width: 100%;
- max-width: 2200px;
+ max-width: 1450px;
  margin-inline: auto;
 
  background: var(--color-background);
@@ -80,55 +80,57 @@ a::after {
 .header {
   font-family: "Roboto Mono";
   color: var(--color-headertext);
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
   width: 100%;
   
+}
+
+.logo__tagline {
+  font-size: 10px;
+  letter-spacing: 1.4px;
 }
 
 .logoheader__wrapper {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  
 }
 
 .logosymbol__wrapper {
-  padding: 24px 48px;
+  padding: 10px 32px;
 }
 
-
-
 .logo__name {
-  font-size: 36px;
+  font-size: 26px;
   letter-spacing: 2.5px;
   font-family: "Shadows Into Light Two";
   font-weight: 900;
 }
 
 .logo__symbol {
-  font-size: 48px;
+  font-size: 42px;
   color: var(--color-headertext);
+  font-family: "Shadows Into Light Two";
+  font-weight: 900;
 }
 
 .nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 48px;
+  gap: 36px;
 }
 
 .navlink {
   font-weight: 700;
-  font-size: 22px;
+  font-size: 18px;
   letter-spacing: 1px;
 }
 
 .toggle__wrapper {
-  padding: 20px;
+  padding-right: 20px;
   display: flex;
   align-items: center;
 }
@@ -149,15 +151,10 @@ a::after {
 
 .hero {
   position: relative;
-
   display: flex;
   align-items: center;
-
-  min-height: 600px;
   width: 100%;
-
   padding: 120px;
-
   background-image:
     linear-gradient(
       rgba(15, 30, 25, 0.08),
@@ -174,9 +171,8 @@ a::after {
 /* HERO CONTENT CARD */
 
 .hero__content {
-  width: min(36%);
+  width: min(40%);
   padding: 42px;
-
   background: rgba(24, 47, 42, 0.80);
 
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -207,7 +203,7 @@ a::after {
   color: white;
 
   font-family: "Inter";
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -216,12 +212,11 @@ a::after {
 /* MAIN HEADING */
 
 .hero h1 {
-  margin: 38px 0px;
+  margin: 24px 0px;
 
   color: white;
-
   font-family: "Shadows Into Light Two";
-  font-size: clamp(2rem, 4.3vw, 4.6rem);
+  font-size: 40px;
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: 2px;
@@ -231,14 +226,11 @@ a::after {
 /* DESCRIPTION */
 
 .hero__description {
-  max-width: 92%;
-
   margin-bottom: 40px;
 
   color: rgba(255, 255, 255, 0.92);
-
   font-family: "Roboto Mono";
-  font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
 }
@@ -283,35 +275,24 @@ a::after {
   padding-bottom: 320px;
 }
 
-
-
 /* PROGRESS TRAIL */
 
 .progress-trail {
   position: absolute;
-
   left: 50%;
   bottom: 0;
-
-  transform: translateX(-50%) translateY(5%);
-
+  transform: translateX(-50%) translateY(15%);
   width: 95%;
-
   padding: 48px 64px;
-
   background-color: var(--color-background);
-
   border: 1px solid var(--sand);
   border-radius: 14px;
-
   z-index: 10;
-
- 
 }
 
 .trailcontent__wrapper {
   display: flex;
-  margin-top: 48px;
+  margin-top: 36px;
   align-items: center;
   justify-content: center;
 }
@@ -337,26 +318,24 @@ a::after {
 
 .progress-trail h2 {
   margin-bottom: 16px;
-
   color: var(--evergreen);
-
   font-family: "Shadows Into Light Two";
   font-size: 36px;
   font-weight: 800;
+  padding-right: 24px;
 }
 
 .progress-trail__intro {
-  max-width: 520px;
-
+  padding-right: 24px;
   color: var(--charcoal);
-
   font-family: "Roboto Mono";
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.6;
+  max-width: 24vw;
 }
 
 .progress-trail__status {
-  padding: 18px 14px;
+  padding: 18px 18px;
 
   background-color: rgba(35, 74, 64, 0.08);
   color: var(--evergreen);
@@ -365,7 +344,7 @@ a::after {
   border-radius: 8px;
 
   font-family: "Roboto Mono";
-  font-size: 16px;
+  font-size: 14px;
 
   text-transform: uppercase;
   letter-spacing: 0.6px;
@@ -377,7 +356,7 @@ a::after {
 
 .trail {
   position: relative;
-
+  padding: 10px 40px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 20px;
@@ -431,10 +410,11 @@ a::after {
   align-items: center;
   justify-content: center;
 
-  width: 64px;
-  height: 64px;
+  width: 40px;
+  height: 40px;
 
   margin-bottom: 18px;
+  padding: 26px;
 
   background-color: var(--evergreen);
 
@@ -471,10 +451,10 @@ a::after {
   color: var(--rust);
 
   font-family: "Roboto Mono";
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 1px;
 }
 
 .trail__waypoint h3 {
@@ -501,7 +481,7 @@ a::after {
   color: var(--sage);
 
   font-family: "Roboto Mono";
-  font-size: 20px;
+  font-size: 14px;
 }
 
 
@@ -512,7 +492,7 @@ a::after {
   width: 95%;
   margin: 0 auto 64px;
   padding: 0px;
-  margin-top: 56px;
+  margin-top: 80px;
   display: grid;
   grid-template-columns: minmax(300px, 0.9fr) minmax(400px, 1.2fr);
   gap: 48px;
