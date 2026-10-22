@@ -1561,8 +1561,8 @@ export const postsData = [
     ]
   },
   {
-    id: 4,
-    mileMarker: 3,
+    id: 8,
+    mileMarker: 7,
     category: "JAVASCRIPT",
     title: "JavaScript Foundations: From Variables to Interactive Pages",
     excerpt:
@@ -1810,16 +1810,16 @@ export const postsData = [
     ],
   },
   {
-    id: 5,
+    id: 9,
     mileMarker: 8,
     category: "JAVASCRIPT",
     title: "5 JavaScript Concepts I Struggled With",
     excerpt:
       "The JavaScript concepts that tripped me up—and the explanations and practice exercises that finally helped them make sense.",
     image: blogPostImage1,
-    elevation: "3,450 ft",
+    elevation: "700 ft",
     readTime: "6 min read",
-    comments: 2,
+    comments: 0,
     featured: false,
     slug: "javascript-concepts-i-struggled-with",
   },
