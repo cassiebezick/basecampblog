@@ -1823,4 +1823,241 @@ export const postsData = [
     featured: false,
     slug: "javascript-concepts-i-struggled-with",
   },
+  {
+  id: 12,
+  mileMarker: 12,
+  category: "REACT",
+  title: "Building a Search Engine Clone with React",
+  excerpt:
+    "How a search engine clone helped me connect React components, state, routing, API requests, and styling in one project.",
+  image: blogPostImage3,
+  imageAlt: "Coding workspace with a mountain backdrop",
+  elevation: "",
+  readTime: "5 MIN READ",
+  comments: 0,
+  featured: false,
+  date: "October 25, 2026",
+  slug: "building-a-search-engine-clone-with-react",
+  content: [
+    {
+      type: "paragraph",
+      text: "Learning individual React concepts is one thing. Connecting them in a working project is another.",
+    },
+    {
+      type: "paragraph",
+      text: "For this project, I followed a tutorial to build a search engine clone with React. Then I worked through the styling, behavior, and deployment needed to make it my own portfolio project.",
+    },
+    {
+      type: "paragraph",
+      text: "The goal was to practice building a familiar interface while learning how a React app requests and displays information.",
+    },
+    {
+      type: "heading",
+      text: "Breaking the Interface into Components",
+      id: "breaking-the-interface-into-components",
+    },
+    {
+      type: "paragraph",
+      text: "One of my first lessons was how to divide the interface into smaller pieces.",
+    },
+    {
+      type: "paragraph",
+      text: "A search input has a different job from a results page. Keeping these pieces in separate components makes the code easier to read and update.",
+    },
+    {
+      type: "paragraph",
+      text: "This helped me understand why React uses components: each piece can focus on one part of the interface.",
+    },
+    {
+      type: "heading",
+      text: "Connecting the Search Input to State",
+      id: "connecting-the-search-input-to-state",
+    },
+    {
+      type: "paragraph",
+      text: "The search field gave me practice with state and events.",
+    },
+    {
+      type: "paragraph",
+      text: "With a controlled input, React state stores the text in the field. An onChange handler updates that state as the user types.",
+    },
+    {
+      type: "paragraph",
+      text: "The basic pattern looks like this:",
+    },
+    {
+      type: "code",
+      code: `const [searchTerm, setSearchTerm] = useState("");
+
+<input
+  value={searchTerm}
+  onChange={(event) => setSearchTerm(event.target.value)}
+/>`,
+    },
+    {
+      type: "paragraph",
+      text: "The input displays searchTerm. When the user types, setSearchTerm updates it, and React renders the new value.",
+    },
+    {
+      type: "heading",
+      text: "Using the URL to Represent a Search",
+      id: "using-the-url-to-represent-a-search",
+    },
+    {
+      type: "paragraph",
+      text: "Submitting a search also helped me understand routing and URL query parameters.",
+    },
+    {
+      type: "paragraph",
+      text: "A URL can hold information about what the user wants to see. For example:",
+    },
+    {
+      type: "code",
+      code: "/search?q=react",
+    },
+    {
+      type: "paragraph",
+      text: "Here, q holds the search term.",
+    },
+    {
+      type: "paragraph",
+      text: "The results page can read that value and use it to request results. This also makes a search URL useful when someone refreshes the page or shares the link.",
+    },
+    {
+      type: "heading",
+      text: "Requesting and Displaying Results",
+      id: "requesting-and-displaying-results",
+    },
+    {
+      type: "paragraph",
+      text: "The project connected the interface to a search API.",
+    },
+    {
+      type: "paragraph",
+      text: "An API lets an application request information from another service. My app handles the interface, while the search service supplies the result data.",
+    },
+    {
+      type: "paragraph",
+      text: "The flow is:",
+    },
+    {
+      type: "list",
+      items: [
+        "1. The user submits a query.",
+        "2. The app requests results.",
+        "3. The service returns data.",
+        "4. React displays that data.",
+      ],
+    },
+    {
+      type: "paragraph",
+      text: "Because the request takes time, the interface also needs to account for loading, errors, and searches with no results.",
+    },
+    {
+      type: "paragraph",
+      text: "This helped me think beyond the successful response. A useful interface should explain what is happening when the data is still loading or something goes wrong.",
+    },
+    {
+      type: "heading",
+      text: "Learning Material UI and Emotion",
+      id: "learning-material-ui-and-emotion",
+    },
+    {
+      type: "paragraph",
+      text: "This project introduced me to Material UI and a different approach to styling.",
+    },
+    {
+      type: "paragraph",
+      text: "I was used to writing styles in separate CSS files. In this project, I used MUI’s styled() utility to customize components inside JavaScript.",
+    },
+    {
+      type: "paragraph",
+      text: "At first, I confused this with the separate styled-components library because the syntax looked similar. I learned that MUI’s default styling engine is Emotion.",
+    },
+    {
+      type: "paragraph",
+      text: "I also learned that a component’s API means the interface it provides to developers. That includes props for its behavior and appearance—not just styling.",
+    },
+    {
+      type: "heading",
+      text: "Understanding When to Use an Effect",
+      id: "understanding-when-to-use-an-effect",
+    },
+    {
+      type: "paragraph",
+      text: "One challenge involved keeping the search input connected to the query in the URL.",
+    },
+    {
+      type: "paragraph",
+      text: "I encountered an ESLint warning about calling a state setter directly inside an effect. That pushed me to think more carefully about where a value should come from.",
+    },
+    {
+      type: "paragraph",
+      text: "If information already exists in the URL, storing another copy in state can create extra synchronization work.",
+    },
+    {
+      type: "paragraph",
+      text: "My takeaway was to ask two questions:",
+    },
+    {
+      type: "list",
+      items: [
+        "Does this value need its own state?",
+        "Am I using an effect to synchronize with something outside React?",
+      ],
+    },
+    {
+      type: "paragraph",
+      text: "I am still building my understanding of effects, but this gave me a clearer reason to use them.",
+    },
+    {
+      type: "heading",
+      text: "Preparing the Project for My Portfolio",
+      id: "preparing-the-project-for-my-portfolio",
+    },
+    {
+      type: "paragraph",
+      text: "Getting the app online was another part of the learning process. I used GitHub for the code and Vercel for the live deployment.",
+    },
+    {
+      type: "paragraph",
+      text: "I also worked on the details around the application, including replacing the default Vite README with information about the project.",
+    },
+    {
+      type: "paragraph",
+      text: "A portfolio project needs more than a working screen. Someone visiting the repository should be able to understand what it does, how to run it, and what its limitations are.",
+    },
+    {
+      type: "heading",
+      text: "What I’m Taking Forward",
+      id: "what-im-taking-forward",
+    },
+    {
+      type: "paragraph",
+      text: "This project helped me connect components, state, routing, API requests, and styling in one application.",
+    },
+    {
+      type: "paragraph",
+      text: "It also reminded me that following a tutorial is a starting point. Working through warnings, asking why the code works, and reviewing the finished behavior are where I build a stronger understanding.",
+    },
+    {
+      type: "paragraph",
+      text: "My next goal is to keep practicing these patterns until I can make more of those decisions independently.",
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          <a href="https://my-search-engine-clone.vercel.app/">
+            Try the live project
+          </a>
+          {" · "}
+          <a href="https://github.com/cassiebezick/my-search-engine-clone">
+            View the code on GitHub
+          </a>
+        </>
+      ),
+    },
+  ],
+},
 ];
