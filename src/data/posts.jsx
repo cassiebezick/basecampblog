@@ -10,7 +10,13 @@ import blogimagehtml from "../assets/blogimagehtml.png";
 import blogimagejavascript from "../assets/blogimagejavascript.png";
 import blogimageresponsive from "../assets/blogimageresponsive.png";
 import blogimagegrid from "../assets/blogimagegrid.png";
-import blogimagereact2 from "../assets/blogimagereact2.png"
+import blogimagereact2 from "../assets/blogimagereact2.png";
+import blogimagemountainscode from "../assets/blogimagemountainscode.png";
+import blogimagenewblocks from "../assets/blogimagenewblocks.png";
+import blogimagetrailbridge from "../assets/blogimagetrailbridge.png";
+import bloglandscapeimage1 from "../assets/bloglandscapeimage1.png";
+import bloglandscape2 from "../assets/bloglandscape2.png";
+
 
 export const postsData = [
   {
@@ -20,7 +26,7 @@ export const postsData = [
     title: "Learning to Code: Welcome to Basecamp",
     excerpt:
       "A record of what I learn, what I build, and how I solve problems along the way.",
-    image: blogPostImage1,
+    image: blogimagemountainscode,
     imageAlt: "laptop and notebook with mountain backdrop",
     elevation: "0 FT",
     readTime: "3 MIN READ",
@@ -1817,7 +1823,7 @@ export const postsData = [
     title: "5 JavaScript Concepts I Struggled With",
     excerpt:
       "The JavaScript concepts that tripped me up—and the explanations and practice exercises that finally helped them make sense.",
-    image: blogPostImage1,
+    image: bloglandscapeimage1,
     elevation: "700 ft",
     readTime: "6 min read",
     comments: 0,
@@ -1831,7 +1837,7 @@ export const postsData = [
   title: "Building a Search Engine Clone with React",
   excerpt:
     "How a search engine clone helped me connect React components, state, routing, API requests, and styling in one project.",
-  image: blogimagereact2,
+  image: blogimagenewblocks,
   imageAlt: "React search results on a desktop monitor in a cozy cabin overlooking Alaskan mountains.",
   elevation: "800 ft",
   readTime: "5 MIN READ",
@@ -2068,7 +2074,7 @@ export const postsData = [
   title: "Starting a React Project with Vite, Git, and GitHub",
   excerpt:
     "Prepare your next React project with a step-by-step guide to Vite, local development, Git commits, and connecting to GitHub.",
-  image: blogPostImage2,
+  image: blogimagereact2,
   imageAlt: "React project setup guide cover",
   elevation: "900 ft",
   readTime: "6 MIN READ",
