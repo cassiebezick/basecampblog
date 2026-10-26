@@ -1833,7 +1833,7 @@ export const postsData = [
     "How a search engine clone helped me connect React components, state, routing, API requests, and styling in one project.",
   image: blogimagereact2,
   imageAlt: "React search results on a desktop monitor in a cozy cabin overlooking Alaskan mountains.",
-  elevation: "",
+  elevation: "800 ft",
   readTime: "5 MIN READ",
   comments: 0,
   featured: false,
