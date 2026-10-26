@@ -10,6 +10,7 @@ import blogimagehtml from "../assets/blogimagehtml.png";
 import blogimagejavascript from "../assets/blogimagejavascript.png";
 import blogimageresponsive from "../assets/blogimageresponsive.png";
 import blogimagegrid from "../assets/blogimagegrid.png";
+import blogimagereact2 from "../assets/blogimagereact2.png"
 
 export const postsData = [
   {
@@ -1824,14 +1825,14 @@ export const postsData = [
     slug: "javascript-concepts-i-struggled-with",
   },
   {
-  id: 12,
-  mileMarker: 12,
+  id: 10,
+  mileMarker: 9,
   category: "REACT",
   title: "Building a Search Engine Clone with React",
   excerpt:
     "How a search engine clone helped me connect React components, state, routing, API requests, and styling in one project.",
-  image: blogPostImage3,
-  imageAlt: "Coding workspace with a mountain backdrop",
+  image: blogimagereact2,
+  imageAlt: "React search results on a desktop monitor in a cozy cabin overlooking Alaskan mountains.",
   elevation: "",
   readTime: "5 MIN READ",
   comments: 0,
