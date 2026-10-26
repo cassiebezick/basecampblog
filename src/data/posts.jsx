@@ -2061,4 +2061,335 @@ export const postsData = [
     },
   ],
 },
+{
+  id: 11,
+  mileMarker: 10,
+  category: "REACT",
+  title: "Starting a React Project with Vite, Git, and GitHub",
+  excerpt:
+    "Prepare your next React project with a step-by-step guide to Vite, local development, Git commits, and connecting to GitHub.",
+  image: blogPostImage2,
+  imageAlt: "React project setup guide cover",
+  elevation: "900 ft",
+  readTime: "6 MIN READ",
+  comments: 0,
+  featured: false,
+  date: "October 25, 2026",
+  slug: "starting-react-project-vite-git-github",
+  content: [
+    {
+      type: "paragraph",
+      text: "Every project needs a starting point. For a React app, that means creating the project files, running the app locally, and setting up version control.",
+    },
+    {
+      type: "paragraph",
+      text: "This guide walks through that setup using Vite, Git, and GitHub. Think of it as preparing your basecamp before you start building.",
+    },
+    {
+      type: "heading",
+      text: "Understanding the Tools",
+      id: "understanding-the-tools",
+    },
+    {
+      type: "paragraph",
+      text: "Each tool has a different job:",
+    },
+    {
+      type: "list",
+      items: [
+        "React helps you build an interface with reusable components.",
+        "Vite creates the starter project and runs a local development server.",
+        "Git records changes to your code on your computer.",
+        "GitHub hosts your Git repository online so you can share your work.",
+      ],
+    },
+    {
+      type: "paragraph",
+      text: "Before you begin, install Node.js and Git, create a GitHub account, and open VS Code.",
+    },
+    {
+      type: "heading",
+      text: "1. Create Your React Project",
+      id: "create-react-project",
+    },
+    {
+      type: "paragraph",
+      text: "Open the folder where you keep your projects in VS Code. Then select Terminal → New Terminal.",
+    },
+    {
+      type: "code",
+      code: "npm create vite@latest my-react-project -- --template react",
+    },
+    {
+      type: "paragraph",
+      text: "Replace my-react-project with your project name. Lowercase letters and hyphens make names easy to read.",
+    },
+    {
+      type: "paragraph",
+      text: "The --template react option tells Vite to create a React project using JavaScript.",
+    },
+    {
+      type: "heading",
+      text: "2. Install the Project Dependencies",
+      id: "install-dependencies",
+    },
+    {
+      type: "paragraph",
+      text: "Move into the new project folder:",
+    },
+    {
+      type: "code",
+      code: "cd my-react-project",
+    },
+    {
+      type: "paragraph",
+      text: "Then install its dependencies:",
+    },
+    {
+      type: "code",
+      code: "npm install",
+    },
+    {
+      type: "paragraph",
+      text: "Dependencies are packages your project needs to work. This command downloads the packages listed in package.json.",
+    },
+    {
+      type: "paragraph",
+      text: "Open your new project folder in VS Code:",
+    },
+    {
+      type: "code",
+      code: "code .",
+    },
+    {
+      type: "paragraph",
+      text: "You can also open it through File → Open Folder.",
+    },
+    {
+      type: "heading",
+      text: "3. Run the App Locally",
+      id: "run-app-locally",
+    },
+    {
+      type: "paragraph",
+      text: "Start the development server:",
+    },
+    {
+      type: "code",
+      code: "npm run dev",
+    },
+    {
+      type: "paragraph",
+      text: "Your terminal will display a local URL. Open that address in your browser to see your app.",
+    },
+    {
+      type: "paragraph",
+      text: "As you edit and save your code, Vite updates the browser so you can see your changes.",
+    },
+    {
+      type: "callout",
+      title: "KEEP YOUR SERVER RUNNING",
+      text: "Keep the terminal running while you work. Press Ctrl + C to stop the server. To use Git while the server runs, open a second terminal.",
+    },
+    {
+      type: "heading",
+      text: "4. Initialize Git",
+      id: "initialize-git",
+    },
+    {
+      type: "paragraph",
+      text: "Make sure your terminal is inside your project folder. Then run:",
+    },
+    {
+      type: "code",
+      code: "git init",
+    },
+    {
+      type: "paragraph",
+      text: "This creates a Git repository for your project. Next, name your main branch:",
+    },
+    {
+      type: "code",
+      code: "git branch -M main",
+    },
+    {
+      type: "paragraph",
+      text: "A branch is a line of development in your repository. For this setup, main will hold your project's primary history.",
+    },
+    {
+      type: "subheading",
+      text: "Check Your .gitignore",
+    },
+    {
+      type: "paragraph",
+      text: "Vite includes a .gitignore file. It tells Git which files and folders to leave out of version control, including node_modules and dist.",
+    },
+    {
+      type: "paragraph",
+      text: "If you use environment files, add these lines to .gitignore before committing:",
+    },
+    {
+      type: "code",
+      code: ".env\n.env.*\n!.env.example",
+    },
+    {
+      type: "paragraph",
+      text: "This excludes local environment files while allowing an example file with placeholder values.",
+    },
+    {
+      type: "callout",
+      title: "KEEP PRIVATE API KEYS ON A BACKEND",
+      text: "Values used in browser-side React code, including VITE_ environment variables, can be visible to visitors. Adding an environment file to .gitignore does not make values included in your app private.",
+    },
+    {
+      type: "heading",
+      text: "5. Create Your First Commit",
+      id: "first-commit",
+    },
+    {
+      type: "paragraph",
+      text: "Check your repository's status:",
+    },
+    {
+      type: "code",
+      code: "git status",
+    },
+    {
+      type: "paragraph",
+      text: "Review the files, then stage them:",
+    },
+    {
+      type: "code",
+      code: "git add .",
+    },
+    {
+      type: "paragraph",
+      text: "Staging selects the changes you want to include in your next commit. Create your first commit:",
+    },
+    {
+      type: "code",
+      code: 'git commit -m "Initial React project setup"',
+    },
+    {
+      type: "paragraph",
+      text: "A commit records a version of your project. Its message should explain what changed.",
+    },
+    {
+      type: "paragraph",
+      text: "If Git asks for your identity, run these commands with your own information:",
+    },
+    {
+      type: "code",
+      code: 'git config --global user.name "Your Name"\ngit config --global user.email "your-email@example.com"',
+    },
+    {
+      type: "paragraph",
+      text: "Then run the commit command again. You can use your GitHub email or GitHub-provided private email.",
+    },
+    {
+      type: "heading",
+      text: "6. Create a GitHub Repository",
+      id: "create-github-repository",
+    },
+    {
+      type: "paragraph",
+      text: "On GitHub, follow these steps to create a new repository:",
+    },
+    {
+      type: "list",
+      items: [
+        "Step 1: Click + → New repository.",
+        "Step 2: Enter your repository name.",
+        "Step 3: Choose Public or Private.",
+        "Step 4: Leave the README, .gitignore, and license options unchecked.",
+        "Step 5: Click Create repository.",
+      ],
+    },
+    {
+      type: "paragraph",
+      text: "Starting with an empty repository keeps the first connection straightforward because your local project already contains files.",
+    },
+    {
+      type: "heading",
+      text: "7. Connect Your Project to GitHub",
+      id: "connect-to-github",
+    },
+    {
+      type: "paragraph",
+      text: "Copy your repository's HTTPS URL. In your terminal, run:",
+    },
+    {
+      type: "code",
+      code: "git remote add origin https://github.com/YOUR-USERNAME/my-react-project.git",
+    },
+    {
+      type: "paragraph",
+      text: "Replace the username and repository name with your own. origin is the name Git uses for this remote repository.",
+    },
+    {
+      type: "paragraph",
+      text: "Upload your first commit:",
+    },
+    {
+      type: "code",
+      code: "git push -u origin main",
+    },
+    {
+      type: "paragraph",
+      text: "The -u option connects your local branch to the remote branch so future uploads can use git push.",
+    },
+    {
+      type: "paragraph",
+      text: "Complete any GitHub sign-in prompt, then refresh your repository page. Your project files should now appear.",
+    },
+    {
+      type: "heading",
+      text: "8. Record Future Mile Markers",
+      id: "future-mile-markers",
+    },
+    {
+      type: "paragraph",
+      text: "After you edit and save your files, use this workflow:",
+    },
+    {
+      type: "code",
+      code: 'git status\ngit add .\ngit commit -m "Describe your changes"\ngit push',
+    },
+    {
+      type: "paragraph",
+      text: "These steps serve different purposes:",
+    },
+    {
+      type: "list",
+      items: [
+        "Save: Update a file on your computer.",
+        "Stage: Select changes for a commit.",
+        "Commit: Record a version locally.",
+        "Push: Upload your commits to GitHub.",
+      ],
+    },
+    {
+      type: "paragraph",
+      text: 'Use a clear commit message, such as "Add responsive navigation" or "Fix search form spacing", so your history is useful later.',
+    },
+    {
+      type: "heading",
+      text: "The Trail Ahead",
+      id: "trail-ahead",
+    },
+    {
+      type: "paragraph",
+      text: "Your React project now has a local development server and a version history backed up on GitHub.",
+    },
+    {
+      type: "paragraph",
+      text: "The next step is to replace the starter screen with your own components, styles, and features. Make a small change, check it in the browser, and commit it when it works.",
+    },
+    {
+      type: "callout",
+      title: "PUBLISHING YOUR PROJECT",
+      text: "Uploading code to GitHub does not automatically publish a live website. When your app is ready to share, you can set up hosting through a service such as Vercel or GitHub Pages.",
+    },
+  ],
+},
 ];
