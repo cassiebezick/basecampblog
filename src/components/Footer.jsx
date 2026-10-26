@@ -13,20 +13,19 @@ import {
   faMugHot,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer__content">
         <div className="footer__column footer__about">
-          <h2 className="footer__heading">
-            About Basecamp ♡
-          </h2>
+          <h2 className="footer__heading">About Basecamp ♡</h2>
 
           <p className="footer__description">
-            I’m Cassie - a front-end developer in training,
-            coffee enthusiast, and Alaska adventurer. This is
-            where I write about code, projects, lessons learned,
-            and life along the way.
+            I’m Cassie - a front-end developer in training, coffee enthusiast,
+            and Alaska adventurer. This is where I write about code, projects,
+            lessons learned, and life along the way.
           </p>
 
           <div className="footer__socials">
@@ -49,7 +48,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://instagram.com/cassiehttps://www.linkedin.com/in/cassandra-bezick/outside"
+              href="https://instagram.com/cassie_outside/"
               aria-label="Visit Cassie's Instagram"
               target="_blank"
               rel="noreferrer"
@@ -57,45 +56,38 @@ function Footer() {
               <FontAwesomeIcon icon={faInstagram} />
             </a>
 
-            <a
-              href="cassiebezick@gmail.com"
-              aria-label="Email Cassie"
-            >
+            <a href="mailto:cassiebezick@gmail.com" aria-label="Email Cassie">
               <FontAwesomeIcon icon={faEnvelope} />
             </a>
           </div>
         </div>
 
         <div className="footer__column footer__newsletter">
-          <h2 className="footer__heading">
-            Supply Drop
-          </h2>
+          <h2 className="footer__heading">Supply Drop</h2>
 
           <p className="footer__description">
-              I’m currently open to new opportunities and collaborations. 
-              Let’s build something thoughtful, responsive, and user-friendly together.
+            I’m currently open to new opportunities and collaborations. Let’s
+            build something thoughtful, responsive, and user-friendly together.
           </p>
 
           <a href="mailto:cassiebezick@gmail.com" className="footer__button">
-          Let's Talk&nbsp;
-          <span aria-hidden="true">→</span></a>
-
+            Let's Talk&nbsp;
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
 
         <nav
           className="footer__column footer__navigation"
           aria-label="Footer navigation"
         >
-          <h2 className="footer__heading">
-            Trail Map
-          </h2>
+          <h2 className="footer__heading">Trail Map</h2>
 
           <ul className="footer__links">
             <li>
-              <a href="/blog">
+              <Link to="/blog">
                 <FontAwesomeIcon icon={faChevronRight} />
                 Articles
-              </a>
+              </Link>
             </li>
 
             <li>
@@ -106,14 +98,14 @@ function Footer() {
             </li>
 
             <li>
-              <a href="/about">
+              <a href="">
                 <FontAwesomeIcon icon={faChevronRight} />
                 About
               </a>
             </li>
 
             <li>
-              <a href="/contact">
+              <a href="">
                 <FontAwesomeIcon icon={faChevronRight} />
                 Contact
               </a>
@@ -123,9 +115,7 @@ function Footer() {
       </div>
 
       <div className="footer__bottom">
-        <p>
-          © {new Date().getFullYear()} Cassie Codes. All rights reserved.
-        </p>
+        <p>© {new Date().getFullYear()} Cassie Codes. All rights reserved.</p>
 
         <p className="footer__built-with">
           Built with

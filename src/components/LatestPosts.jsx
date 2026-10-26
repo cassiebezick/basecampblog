@@ -1,5 +1,6 @@
 import { postsData } from "../data/posts";
 import PostCard from "./PostCard";
+import { Link } from "react-router-dom";
 
 function LatestPosts() {
   const latestPosts = postsData.filter((post) => !post.featured).slice(0, 3);
@@ -9,9 +10,9 @@ function LatestPosts() {
       <div className="latest-posts__header">
         <h2 className="latest-posts__title">Latest Mile Markers</h2>
 
-        <a className="latest-posts__view-all" href="/articles">
+        <Link to="/blog" className="latest-posts__view-all">
           View All Articles →
-        </a>
+        </Link>
       </div>
 
       <div className="latest-posts__grid">

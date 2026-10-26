@@ -9,12 +9,19 @@ function ArticleTrailNav({ content }) {
       aria-label="Article sections"
     >
       <div className="article-trail-nav__inner">
-
         {sections.map((section) => (
           <a
             key={section.id}
             href={`#${section.id}`}
             className="article-trail-nav__item"
+            onClick={(event) => {
+              event.preventDefault();
+
+              document.getElementById(section.id)?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
           >
             <span className="article-trail-nav__marker" />
 
@@ -23,7 +30,6 @@ function ArticleTrailNav({ content }) {
             </span>
           </a>
         ))}
-
       </div>
     </nav>
   );

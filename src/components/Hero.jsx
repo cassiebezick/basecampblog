@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Hero() {
   return (
     <section className="hero">
@@ -14,10 +16,10 @@ function Hero() {
           Hey, I'm Cassie! Welcome to basecamp!  I'm documenting my journey into front-end development, one project, wrong turn, breakthrough and new concept at a time.
         </p>
 
-        <a href="/articles" className="hero__button">
+        <Link to="/blog">
           HIT THE TRAIL
           <span aria-hidden="true">→</span>
-        </a>
+         </Link>
       </div>
     </section>
   );
