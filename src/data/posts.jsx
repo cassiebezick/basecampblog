@@ -2398,4 +2398,222 @@ export const postsData = [
     },
   ],
 },
+{
+  id: 12,
+  mileMarker: 11,
+  category: "REACT",
+  title: "Building a YouTube Clone with React: Connecting the Pieces",
+  excerpt: "Lessons from building a YouTube-inspired app: components, live API data, routing, dependent requests, and debugging small mistakes.",
+  image: blogimagereact2,
+  imageAlt: "React project cover image",
+  elevation: "1,000 ft",
+  readTime: "5 MIN READ",
+  comments: 0,
+  featured: false,
+  date: "October 27, 2026",
+  slug: "building-youtube-clone-with-react",
+  content: [
+    {
+      type: "paragraph",
+      text: "After building my search engine clone, I wanted more practice working with React and live API data. For this project, I followed a GreatStack tutorial to create a YouTube-inspired application using React and the YouTube Data API."
+    },
+    {
+      type: "paragraph",
+      text: "The project brought several concepts together: reusable components, state, effects, routing, and API requests. It also gave me practice debugging how those pieces connect."
+    },
+    {
+      type: "heading",
+      text: "Breaking the Interface into Components",
+      id: "breaking-the-interface-into-components"
+    },
+    {
+      type: "paragraph",
+      text: "A video page has several parts, each with a different job. Separating them into components helped me understand the structure of the application:"
+    },
+    {
+      type: "list",
+      "items": [
+        "Navbar: displays the top navigation.",
+        "Sidebar: lets users select a video category.",
+        "Feed: displays video cards from the API.",
+        "PlayVideo: displays the selected video, its details, and comments.",
+        "Recommended: displays additional popular videos in the same category."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "This made the code easier to navigate. When something wasn’t displaying correctly, I had a clearer idea of where to start looking."
+    },
+    {
+      "type": "heading",
+      "text": "Displaying Live API Data",
+      "id": "displaying-live-api-data"
+    },
+    {
+      "type": "paragraph",
+      "text": "The YouTube Data API provides information about videos, channels, and comments. Rather than writing every title, image, and view count directly into my JSX, I could request that information and use it to build the interface."
+    },
+    {
+      "type": "paragraph",
+      "text": "One lesson was learning to follow the structure of an API response. For example, after storing an individual video in state, its title was available through:"
+    },
+    {
+      "type": "code",
+      "code": "apiData.snippet.title"
+    },
+    {
+      "type": "paragraph",
+      "text": "Understanding that path helped me connect the JSON response to what appeared on the page."
+    },
+    {
+      "type": "heading",
+      "text": "Understanding State and Loading",
+      "id": "understanding-state-and-loading"
+    },
+    {
+      "type": "paragraph",
+      "text": "API data doesn’t arrive immediately. My component renders before the request finishes, so I needed to account for data that wasn’t available yet."
+    },
+    {
+      "type": "paragraph",
+      "text": "I started my video state with:"
+    },
+    {
+      "type": "code",
+      "code": "const [apiData, setApiData] = useState(null);"
+    },
+    {
+      "type": "paragraph",
+      "text": "Once the request finished, updating that state caused React to render again with the video details."
+    },
+    {
+      "type": "paragraph",
+      "text": "This helped me understand why conditional rendering matters. A component needs something to display while it waits, and it shouldn’t try to read properties from null."
+    },
+    {
+      "type": "heading",
+      "text": "Connecting Requests That Depend on Each Other",
+      "id": "connecting-dependent-requests"
+    },
+    {
+      "type": "paragraph",
+      "text": "The channel profile image taught me an especially useful lesson about the order of requests."
+    },
+    {
+      "type": "paragraph",
+      "text": "To fetch the channel details, I first needed the channel ID from the video response. That meant the channel request had to wait until the video data was available."
+    },
+    {
+      "type": "code",
+      "code": "useEffect(() => {\n  if (apiData) {\n    fetchOtherData();\n  }\n}, [apiData]);"
+    },
+    {
+      "type": "paragraph",
+      "text": "The condition prevents the request from running before the required data exists. This example focuses on that guard; a complete effect also needs to account for the function and values it uses in its dependencies."
+    },
+    {
+      "type": "paragraph",
+      "text": "This made effects feel more practical to me: they help synchronize the component with information outside React, but I still need to think carefully about when they run."
+    },
+    {
+      "type": "heading",
+      "text": "Using URL Parameters",
+      "id": "using-url-parameters"
+    },
+    {
+      "type": "paragraph",
+      "text": "React Router allowed each video to have its own page without creating a separate component for every video."
+    },
+    {
+      "type": "paragraph",
+      "text": "The route included a video ID:"
+    },
+    {
+      "type": "code",
+      "code": "/video/:categoryId/:videoId"
+    },
+    {
+      "type": "paragraph",
+      "text": "Inside the video component, I could read that value with:"
+    },
+    {
+      "type": "code",
+      "code": "const { videoId } = useParams();"
+    },
+    {
+      "type": "paragraph",
+      "text": "That ID connected the selected video card to both the embedded player and the request for video details."
+    },
+    {
+      "type": "paragraph",
+      "text": "I also learned why dependencies matter. Including videoId in an effect’s dependency array lets the component request new details when the selected video changes."
+    },
+    {
+      "type": "heading",
+      "text": "Debugging Small Mistakes",
+      "id": "debugging-small-mistakes"
+    },
+    {
+      "type": "paragraph",
+      "text": "Some of my biggest learning moments came from small errors."
+    },
+    {
+      "type": "paragraph",
+      "text": "An extra closing brace in a request URL changed the video ID being sent to Google. A capitalization difference between setCHannelData and setChannelData prevented channel state from updating."
+    },
+    {
+      "type": "paragraph",
+      "text": "These issues reminded me that debugging often means checking the details:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Is the request URL correct?",
+        "Do variable names match exactly?",
+        "Has the data loaded yet?",
+        "Does the response contain the information I expected?"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "I’m learning to trace the path from the request to state and then to the JSX, instead of only looking at the part of the page that appears broken."
+    },
+    {
+      "type": "heading",
+      "text": "Working with API Limits",
+      "id": "working-with-api-limits"
+    },
+    {
+      "type": "paragraph",
+      "text": "I also encountered a quotaExceeded response from Google."
+    },
+    {
+      "type": "paragraph",
+      "text": "That introduced another part of working with APIs: a request can fail because of a service limit, even when the application code is otherwise correct."
+    },
+    {
+      "type": "paragraph",
+      "text": "It showed me why loading states and error handling deserve attention. An application needs to account for unsuccessful requests as well as successful ones."
+    },
+    {
+      "type": "heading",
+      "text": "What I Want to Improve Next",
+      "id": "what-i-want-to-improve-next"
+    },
+    {
+      "type": "paragraph",
+      "text": "The tutorial gave me a working foundation, along with several opportunities to keep practicing."
+    },
+    {
+      "type": "paragraph",
+      "text": "My next improvements include working search, clearer loading and error messages, better accessibility, and cleaning up unused tutorial code. Some controls are still visual placeholders, so there’s also room to make the interface more functional."
+    },
+    {
+      "type": "paragraph",
+      "text": "Building this project helped me see how React concepts work together in a larger application. I’m becoming more comfortable following data through components—and understanding where to look when something doesn’t behave as expected."
+    }
+  ]
+},
+
+
 ];
