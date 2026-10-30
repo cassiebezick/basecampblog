@@ -2616,4 +2616,360 @@ export const postsData = [
 },
 
 
+
+// Twitter clone: early layout and modal-building notes.
+{
+  "id": 13,
+  "mileMarker": 12,
+  "category": "REACT",
+  "title": "Starting a Twitter Clone: Finding My Footing with Next.js, TypeScript, and Tailwind",
+  "excerpt": "Early lessons from my Twitter clone: learning Next.js, TypeScript, Tailwind, and Zustand while building the layout and login/register modals.",
+  "image": blogimagetrailbridge,
+  "imageAlt": "Mountain trail bridge used as the cover for my Twitter clone learning notes",
+  "elevation": "1,100 ft",
+  "readTime": "8 MIN READ",
+  "comments": 0,
+  "featured": false,
+  "date": "October 30, 2026",
+  "slug": "starting-twitter-clone-nextjs-typescript-tailwind",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "After finishing my search engine and YouTube clone projects, I started a new tutorial: building a Twitter clone."
+    },
+    {
+      "type": "paragraph",
+      "text": "I expected more practice with React. What I found was a project that also introduced Next.js, TypeScript, Tailwind CSS, and Zustand. Familiar ideas like components and props were still there, but they were surrounded by syntax I hadn't used before."
+    },
+    {
+      "type": "paragraph",
+      "text": "I've been able to follow along and build the early interface, but following the steps hasn't always meant understanding them. Sometimes I needed to pause over a single line before I could explain what it did."
+    },
+    {
+      "type": "paragraph",
+      "text": "This post is a checkpoint from that stage of the trail: setting up the project, building the layout, and creating the login and registration modals. The database and real authentication work are still ahead."
+    },
+    {
+      "type": "heading",
+      "text": "Sorting Out What Each Tool Does",
+      "id": "sorting-out-what-each-tool-does"
+    },
+    {
+      "type": "paragraph",
+      "text": "One of my first challenges was figuring out which technology I was looking at."
+    },
+    {
+      "type": "paragraph",
+      "text": "Was an unfamiliar line part of Next.js? TypeScript? React? It helped to give each tool a specific job:"
+    },
+    {
+      "type": "table",
+      "caption": "The tools in this project",
+      "headers": [
+        "Tool",
+        "Its role in this project"
+      ],
+      "rows": [
+        [
+          "React",
+          "Builds components and updates the interface when state changes"
+        ],
+        [
+          "Next.js",
+          "Provides the application framework and page routing"
+        ],
+        [
+          "TypeScript",
+          "Checks the types of data and props during development"
+        ],
+        [
+          "Tailwind CSS",
+          "Styles the interface through utility classes"
+        ],
+        [
+          "Zustand",
+          "Shares state between components, including modal visibility"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Breaking this down made the files easier to read. An interface declaration belongs to TypeScript. A call to useState belongs to React. A class like lg:hidden belongs to Tailwind."
+    },
+    {
+      "type": "paragraph",
+      "text": "I don't have to understand every tool at once to identify what a particular line is responsible for."
+    },
+    {
+      "type": "heading",
+      "text": "Getting Past the First Setup Error",
+      "id": "getting-past-the-first-setup-error"
+    },
+    {
+      "type": "paragraph",
+      "text": "My first obstacle appeared before I had built much of anything."
+    },
+    {
+      "type": "paragraph",
+      "text": "The tutorial instructed me to run:"
+    },
+    {
+      "type": "code",
+      "code": "npx tailwindcss init -p"
+    },
+    {
+      "type": "paragraph",
+      "text": "Instead of creating configuration files, npm reported that it couldn't determine which executable to run."
+    },
+    {
+      "type": "paragraph",
+      "text": "The tutorial used Tailwind's version 3 setup, while the newer version had a different installation process. Installing Tailwind v3 allowed me to continue with the tutorial's instructions."
+    },
+    {
+      "type": "paragraph",
+      "text": "That was an early reminder to check versions when following an older tutorial. A command can be correct for the tutorial's environment and still fail in a newly created project."
+    },
+    {
+      "type": "heading",
+      "text": "Learning Where Next.js Fits",
+      "id": "learning-where-next-js-fits"
+    },
+    {
+      "type": "paragraph",
+      "text": "This project uses Next.js's Pages Router. I'm learning how files in the pages folder connect to routes, and how pages/_app.tsx provides a shared wrapper around the active page."
+    },
+    {
+      "type": "paragraph",
+      "text": "My app wrapper renders the login and registration modals, then places the page inside a shared layout:"
+    },
+    {
+      "type": "code",
+      "code": "<>\n  <RegisterModal />\n  <LoginModal />\n  <Layout>\n    <Component {...pageProps} />\n  </Layout>\n</>"
+    },
+    {
+      "type": "paragraph",
+      "text": "The layout supplies the sidebar and surrounding structure. The active page supplies its content through children."
+    },
+    {
+      "type": "paragraph",
+      "text": "Seeing those pieces together helped me understand why a layout component is useful: I can keep the shared structure in one place while changing the page content inside it."
+    },
+    {
+      "type": "heading",
+      "text": "Understanding TypeScript Interfaces",
+      "id": "understanding-typescript-interfaces"
+    },
+    {
+      "type": "paragraph",
+      "text": "TypeScript has been one of the bigger adjustments for me."
+    },
+    {
+      "type": "paragraph",
+      "text": "When the presenter said we were creating an “interface,” I initially needed to clarify what that meant. In this context, it meant describing the props a component accepts."
+    },
+    {
+      "type": "paragraph",
+      "text": "For example:"
+    },
+    {
+      "type": "code",
+      "code": "interface ModalProps {\n  isOpen?: boolean;\n  onClose: () => void;\n  title?: string;\n  actionLabel: string;\n}"
+    },
+    {
+      "type": "paragraph",
+      "text": "I'm learning to read this as a description:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "isOpen is an optional true-or-false value.",
+        "onClose is a required function that takes no arguments and whose return value isn't used.",
+        "title is optional text.",
+        "actionLabel is required text."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The interface doesn't create the modal or make it close. It helps TypeScript check the values passed into it. The component still needs to use those props to produce its appearance and behavior."
+    },
+    {
+      "type": "paragraph",
+      "text": "That distinction has become useful throughout the project."
+    },
+    {
+      "type": "heading",
+      "text": "Translating Tailwind Back into CSS",
+      "id": "translating-tailwind-back-into-css"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tailwind also felt unfamiliar at first. I was used to writing CSS rules, so a long list of classes took some effort to read."
+    },
+    {
+      "type": "paragraph",
+      "text": "One sidebar element uses:"
+    },
+    {
+      "type": "code",
+      "code": "className=\"col-span-1 h-full pr-4 md:pr-6\""
+    },
+    {
+      "type": "paragraph",
+      "text": "With the default Tailwind v3 settings, that means the element spans one grid column, uses the parent's full height, and has right padding of 1rem. At widths of 768px and above, that padding becomes 1.5rem."
+    },
+    {
+      "type": "paragraph",
+      "text": "Translating the classes into CSS concepts I already know has helped more than trying to memorize them all at once."
+    },
+    {
+      "type": "paragraph",
+      "text": "The responsive Tweet button gave me a practical example. The smaller-screen feather button uses lg:hidden, while the larger text button uses hidden lg:block."
+    },
+    {
+      "type": "paragraph",
+      "text": "I accidentally wrote lg: block with a space. That prevented the responsive class from working, leaving the text button hidden. Fixing the space made the button appear at larger widths."
+    },
+    {
+      "type": "paragraph",
+      "text": "It was a small typo, but understanding the class made the fix meaningful."
+    },
+    {
+      "type": "heading",
+      "text": "Building Reusable Pieces",
+      "id": "building-reusable-pieces"
+    },
+    {
+      "type": "paragraph",
+      "text": "The login and registration forms share a modal component, along with reusable Input and Button components."
+    },
+    {
+      "type": "paragraph",
+      "text": "The shared modal handles the surrounding structure. Each form supplies its own title, fields, footer, and action label. This gives me another example of React composition: combining smaller pieces to create different interfaces."
+    },
+    {
+      "type": "paragraph",
+      "text": "My missing placeholder text taught me something about that process."
+    },
+    {
+      "type": "paragraph",
+      "text": "I passed placeholder=\"Email\" to my Input component and included placeholder in its props interface. But I hadn't connected it to the actual HTML input:"
+    },
+    {
+      "type": "code",
+      "code": "<input placeholder={placeholder} />"
+    },
+    {
+      "type": "paragraph",
+      "text": "The value had reached my component, but stopped there."
+    },
+    {
+      "type": "paragraph",
+      "text": "Now, when something is missing, I have another question to ask: did I pass the prop all the way to the element that needs it?"
+    },
+    {
+      "type": "heading",
+      "text": "Connecting Inputs to State",
+      "id": "connecting-inputs-to-state"
+    },
+    {
+      "type": "paragraph",
+      "text": "The forms also give me more practice with controlled inputs:"
+    },
+    {
+      "type": "code",
+      "code": "const [email, setEmail] = useState('');\n\n<Input\n  placeholder=\"Email\"\n  value={email}\n  onChange={(e) => setEmail(e.target.value)}\n/>"
+    },
+    {
+      "type": "paragraph",
+      "text": "The state value supplies the text displayed in the field. When I type, the change handler updates that state, and React renders the updated value."
+    },
+    {
+      "type": "paragraph",
+      "text": "Tracing those steps makes it easier to understand how typing becomes data the application can use later."
+    },
+    {
+      "type": "heading",
+      "text": "Opening Modals with Shared State",
+      "id": "opening-modals-with-shared-state"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Tweet button and login modal live in different components. Zustand gives them access to the same modal state."
+    },
+    {
+      "type": "paragraph",
+      "text": "The store includes an isOpen value and actions to change it. The button calls the opening action, and the modal uses the visibility value to decide whether to display its content."
+    },
+    {
+      "type": "paragraph",
+      "text": "I ran into an error here too. I referenced useLoginModal without calling it. Adding the parentheses gave me the store values and actions:"
+    },
+    {
+      "type": "code",
+      "code": "const loginModal = useLoginModal();"
+    },
+    {
+      "type": "paragraph",
+      "text": "Then, inside the click handler:"
+    },
+    {
+      "type": "code",
+      "code": "loginModal.onOpen();"
+    },
+    {
+      "type": "paragraph",
+      "text": "This helped connect several ideas: a click triggers a function, the function changes state, and that state change updates the interface."
+    },
+    {
+      "type": "heading",
+      "text": "Learning to Read the Callback Code",
+      "id": "learning-to-read-the-callback-code"
+    },
+    {
+      "type": "paragraph",
+      "text": "I'm also getting used to handlers wrapped in useCallback:"
+    },
+    {
+      "type": "code",
+      "code": "const handleClose = useCallback(() => {\n  if (disabled) return;\n  onClose();\n}, [disabled, onClose]);"
+    },
+    {
+      "type": "paragraph",
+      "text": "The early return stops the handler when the modal is disabled. Otherwise, it calls the supplied closing function."
+    },
+    {
+      "type": "paragraph",
+      "text": "useCallback caches the function reference between renders when its dependencies are unchanged. It doesn't call the function itself. Understanding the handler's job first makes the extra hook syntax easier to approach."
+    },
+    {
+      "type": "heading",
+      "text": "My Next Checkpoint",
+      "id": "my-next-checkpoint"
+    },
+    {
+      "type": "paragraph",
+      "text": "At this stage, the forms provide the interface for login and registration. They aren't connected to real account authentication yet."
+    },
+    {
+      "type": "paragraph",
+      "text": "Before moving into that work, I'm taking time to review how props travel through components, how local state controls inputs, and how shared state connects the sidebar to the modals."
+    },
+    {
+      "type": "paragraph",
+      "text": "I still don't find every part of this stack comfortable. But I can now explain several lines that initially felt like something I was copying without understanding."
+    },
+    {
+      "type": "paragraph",
+      "text": "For this stretch of the trail, that's the progress I want to keep building on: following the tutorial, pausing when something is unclear, and gradually making the code easier to explain in my own words."
+    },
+    {
+      "type": "paragraph",
+      "text": "Tutorial credit: This project follows Code With Antonio's Twitter clone tutorial (https://www.youtube.com/watch?v=ytkG7RT6SvU). This post documents my learning during the early layout and modal-building stage."
+    },
+    {
+      "type": "paragraph",
+      "text": "Project repository: my-twitter-clone on GitHub (https://github.com/cassiebezick/my-twitter-clone)"
+    }
+  ]
+},
 ];
