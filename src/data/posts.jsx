@@ -2616,23 +2616,21 @@ export const postsData = [
 },
 
 
-
-// Twitter clone: early layout and modal-building notes.
 {
-  "id": 13,
-  "mileMarker": 12,
-  "category": "REACT",
-  "title": "Starting a Twitter Clone: Finding My Footing with Next.js, TypeScript, and Tailwind",
-  "excerpt": "Early lessons from my Twitter clone: learning Next.js, TypeScript, Tailwind, and Zustand while building the layout and login/register modals.",
-  "image": blogimagetrailbridge,
-  "imageAlt": "Mountain trail bridge used as the cover for my Twitter clone learning notes",
-  "elevation": "1,100 ft",
-  "readTime": "8 MIN READ",
-  "comments": 0,
-  "featured": false,
-  "date": "October 30, 2026",
-  "slug": "starting-twitter-clone-nextjs-typescript-tailwind",
-  "content": [
+  id: 13,
+  mileMarker: 12,
+  category: "REACT",
+  title: "Starting a Twitter Clone: Finding My Footing with Next.js, TypeScript, and Tailwind",
+  excerpt: "Early lessons from my Twitter clone: learning Next.js, TypeScript, Tailwind, and Zustand while building the layout and login/register modals.",
+  image: blogimagetrailbridge,
+  imageAlt: "Mountain trail bridge used as the cover for my Twitter clone learning notes",
+  elevation: "1,100 ft",
+  readTime: "8 MIN READ",
+  comments: 0,
+  featured: false,
+  date: "October 30, 2026",
+  slug: "starting-twitter-clone-nextjs-typescript-tailwind",
+  content: [
     {
       "type": "paragraph",
       "text": "After finishing my search engine and YouTube clone projects, I started a new tutorial: building a Twitter clone."
@@ -2975,20 +2973,20 @@ export const postsData = [
 
 
 {
-  "id": 14,
-  "mileMarker": 13,
-  "category": "REACT",
-  "title": "Twitter Clone Foundations: A Beginner’s Guide to the Moving Parts",
-  "excerpt": "A beginner-friendly review of the setup, components, TypeScript props, Tailwind classes, form state, callbacks, and shared modals behind my Twitter clone.",
-  "image": blogimagemountainscode,
-  "imageAlt": "A timber trail bridge crossing an Alaskan gorge",
-  "elevation": "1,150 ft",
-  "readTime": "9 MIN READ",
-  "comments": 0,
-  "featured": false,
-  "date": "November 13, 2026",
-  "slug": "twitter-clone-foundations-beginner-guide",
-  "content": [
+  id: 14,
+  mileMarker: 13,
+  category: "REACT",
+  title: "Twitter Clone Foundations: A Beginner’s Guide to the Moving Parts",
+  excerpt: "A beginner-friendly review of the setup, components, TypeScript props, Tailwind classes, form state, callbacks, and shared modals behind my Twitter clone.",
+  image: blogimagemountainscode,
+  imageAlt: "A timber trail bridge crossing an Alaskan gorge",
+  elevation: "1,150 ft",
+  readTime: "9 MIN READ",
+  comments: 0,
+  featured: false,
+  date: "November 13, 2026",
+  slug: "twitter-clone-foundations-beginner-guide",
+  content: [
     {
       "type": "paragraph",
       "text": "Before my Twitter clone had working accounts, posts, or likes, I had to understand the pieces that made up its interface. I was learning Next.js, TypeScript, Tailwind CSS, and Zustand alongside familiar React concepts. Sometimes one line of code was enough to make me pause the tutorial."
