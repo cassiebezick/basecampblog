@@ -2972,4 +2972,623 @@ export const postsData = [
     }
   ]
 },
+
+
+{
+  "id": 14,
+  "mileMarker": 13,
+  "category": "REACT",
+  "title": "Twitter Clone Foundations: A Beginner’s Guide to the Moving Parts",
+  "excerpt": "A beginner-friendly review of the setup, components, TypeScript props, Tailwind classes, form state, callbacks, and shared modals behind my Twitter clone.",
+  "image": blogimagemountainscode,
+  "imageAlt": "A timber trail bridge crossing an Alaskan gorge",
+  "elevation": "1,150 ft",
+  "readTime": "9 MIN READ",
+  "comments": 0,
+  "featured": false,
+  "date": "November 13, 2026",
+  "slug": "twitter-clone-foundations-beginner-guide",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Before my Twitter clone had working accounts, posts, or likes, I had to understand the pieces that made up its interface. I was learning Next.js, TypeScript, Tailwind CSS, and Zustand alongside familiar React concepts. Sometimes one line of code was enough to make me pause the tutorial."
+    },
+    {
+      "type": "paragraph",
+      "text": "I put together a beginner study guide to help me review those foundations. This post turns those notes into a trail reference: what each tool does, how components fit together, and how typing into a form becomes React state."
+    },
+    {
+      "type": "callout",
+      "title": "THIS CHECKPOINT",
+      "text": "These notes focus on setup, layout, and the login and registration interface from roughly the first hour of the tutorial. Database configuration and real authentication come later. The examples are simplified explanations, not a complete application."
+    },
+    {
+      "type": "heading",
+      "id": "tools-and-their-jobs",
+      "text": "Giving Each Tool a Job"
+    },
+    {
+      "type": "table",
+      "caption": "The tools behind the early interface",
+      "headers": [
+        "Tool",
+        "What I used it for"
+      ],
+      "rows": [
+        [
+          "JavaScript",
+          "Functions, events, conditions, and changes to data."
+        ],
+        [
+          "React",
+          "Reusable components and interfaces that respond to state."
+        ],
+        [
+          "TypeScript",
+          "Describing the values that props and functions expect."
+        ],
+        [
+          "Next.js",
+          "Organizing pages and providing the application framework."
+        ],
+        [
+          "Tailwind CSS",
+          "Styling with utility classes."
+        ],
+        [
+          "Zustand",
+          "Sharing modal visibility between components."
+        ],
+        [
+          "React Icons",
+          "Displaying icons as components."
+        ],
+        [
+          "Node.js and npm",
+          "Running development tools, installing packages, and starting the development server."
+        ],
+        [
+          "PostCSS",
+          "Processing CSS during the build."
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "It helped to identify the tool before trying to understand the line. An interface declaration is TypeScript. useState is React. A class such as lg:hidden is Tailwind. They work together, but each has a different responsibility."
+    },
+    {
+      "type": "heading",
+      "id": "setup-and-folders",
+      "text": "Understanding Setup and Project Structure"
+    },
+    {
+      "type": "paragraph",
+      "text": "npm install installs the dependencies listed in package.json. npm install package-name adds a package, while npm run dev starts the development server defined by the project. npx runs a package command."
+    },
+    {
+      "type": "paragraph",
+      "text": "My Tailwind setup followed the version 3 approach used in the tutorial. That distinction mattered when an installation command did not behave as expected. Setup instructions need to match the version being used."
+    },
+    {
+      "type": "code",
+      "code": "npm install -D tailwindcss@3 postcss autoprefixer\nnpx tailwindcss init -p"
+    },
+    {
+      "type": "table",
+      "caption": "Finding my way around a Pages Router project",
+      "headers": [
+        "Location",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "pages/index.tsx",
+          "The home page."
+        ],
+        [
+          "pages/_app.tsx",
+          "A shared wrapper around the active page."
+        ],
+        [
+          "components/",
+          "Reusable interface pieces."
+        ],
+        [
+          "hooks/",
+          "Reusable hooks and shared-store hooks."
+        ],
+        [
+          "styles/globals.css",
+          "Global styles and Tailwind directives."
+        ],
+        [
+          "public/",
+          "Static files available through URLs."
+        ],
+        [
+          "package.json",
+          "Dependencies and project scripts."
+        ],
+        [
+          "tsconfig.json",
+          "TypeScript settings and configured path aliases."
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "This project uses the Pages Router. Examples using app/layout.tsx belong to a different Next.js routing approach. Knowing which setup I was following helped me avoid mixing instructions."
+    },
+    {
+      "type": "heading",
+      "id": "components-props-and-children",
+      "text": "Components, Props, and Children"
+    },
+    {
+      "type": "paragraph",
+      "text": "A component is a function that returns part of the interface. Props supply information to that component. The children prop represents content placed between its opening and closing tags."
+    },
+    {
+      "type": "code",
+      "code": "<Layout>\n  <Header label=\"Home\" />\n  <p>Your feed goes here.</p>\n</Layout>"
+    },
+    {
+      "type": "paragraph",
+      "text": "Layout supplies the shared structure and renders children where the page content belongs. This makes it possible to reuse the same surrounding layout across different pages."
+    },
+    {
+      "type": "paragraph",
+      "text": "JSX resembles HTML, but braces let it include JavaScript expressions. Component names start with capital letters, className supplies CSS classes, and fragments group elements without adding an extra wrapper."
+    },
+    {
+      "type": "heading",
+      "id": "typescript-props",
+      "text": "Reading TypeScript Props"
+    },
+    {
+      "type": "code",
+      "code": "interface ModalProps {\n  isOpen?: boolean;\n  onClose: () => void;\n  title?: string;\n  actionLabel: string;\n}"
+    },
+    {
+      "type": "list",
+      "items": [
+        "isOpen?: boolean means the visibility prop is optional and accepts true or false when supplied.",
+        "onClose: () => void describes a required function with no arguments whose return value is not used.",
+        "title?: string allows optional text.",
+        "actionLabel: string requires text for the action button."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The interface describes expected values. It does not create the modal or make it close. The component still needs code that uses those props. The question mark also does not set a default value; an omitted prop is normally undefined."
+    },
+    {
+      "type": "heading",
+      "id": "tailwind-and-responsive-layouts",
+      "text": "Translating Tailwind into Familiar CSS"
+    },
+    {
+      "type": "table",
+      "caption": "Examples using default Tailwind v3 settings",
+      "headers": [
+        "Class",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "grid grid-cols-4",
+          "Create a grid with four equal-width columns."
+        ],
+        [
+          "col-span-1",
+          "Occupy one grid column."
+        ],
+        [
+          "flex flex-col",
+          "Arrange flex children vertically."
+        ],
+        [
+          "items-center",
+          "Center items along the flex cross axis."
+        ],
+        [
+          "gap-4",
+          "Add 1rem of space between items."
+        ],
+        [
+          "px-4 py-2",
+          "Use 1rem horizontal and 0.5rem vertical padding."
+        ],
+        [
+          "hidden lg:block",
+          "Hide by default; display as a block at 1024px and wider."
+        ],
+        [
+          "hover:opacity-70",
+          "Change opacity while the element is hovered."
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The prefixes describe when a style applies. Responsive prefixes depend on viewport width. Hover, focus, and disabled prefixes depend on an element’s state. Writing lg: block with a space breaks the intended class, which explained one of my early missing-button problems."
+    },
+    {
+      "type": "paragraph",
+      "text": "A modal combines these CSS ideas: a fixed overlay covers the viewport, flex utilities center its contents, and a stacking level places it above other content. The visual styling is one piece; keyboard behavior and focus management need attention too."
+    },
+    {
+      "type": "heading",
+      "id": "reusing-components",
+      "text": "Reusing Components and Passing Props Through"
+    },
+    {
+      "type": "paragraph",
+      "text": "The login and registration forms share a Modal, Input, and Button. Each form supplies different content while the shared components handle their common structure."
+    },
+    {
+      "type": "paragraph",
+      "text": "One lesson came from missing placeholder text. Adding placeholder to the interface and passing it into my custom Input was not enough. The component also had to pass it to the actual HTML input."
+    },
+    {
+      "type": "code",
+      "code": "function Input({ placeholder, value, onChange }) {\n  return (\n    <input\n      placeholder={placeholder}\n      value={value}\n      onChange={onChange}\n    />\n  );\n}"
+    },
+    {
+      "type": "paragraph",
+      "text": "This simplified example leaves out the TypeScript props declaration to make the data path easier to see. Receiving a prop and applying it are separate steps. The same applies to disabled and type=\"password\"."
+    },
+    {
+      "type": "heading",
+      "id": "state-and-controlled-inputs",
+      "text": "Connecting Inputs to State"
+    },
+    {
+      "type": "code",
+      "code": "const [email, setEmail] = useState('');\n\n<Input\n  placeholder=\"Email\"\n  value={email}\n  onChange={(e) => setEmail(e.target.value)}\n/>"
+    },
+    {
+      "type": "paragraph",
+      "text": "email holds the current text. value displays that text in the input. Typing calls onChange, which uses setEmail to update state. React then renders the new value. This is a controlled input."
+    },
+    {
+      "type": "paragraph",
+      "text": "A placeholder is a hint for an empty field. It is not the field’s value or a replacement for an accessible label."
+    },
+    {
+      "type": "heading",
+      "id": "events-and-callbacks",
+      "text": "Understanding Events and Callbacks"
+    },
+    {
+      "type": "code",
+      "code": "<button onClick={handleClose}>Close</button>"
+    },
+    {
+      "type": "paragraph",
+      "text": "Passing handleClose gives React a function to call later. Writing handleClose() there would call it during rendering. A callback is simply a function passed to another piece of code to call."
+    },
+    {
+      "type": "code",
+      "code": "const handleClose = useCallback(() => {\n  if (disabled) return;\n  onClose();\n}, [disabled, onClose]);"
+    },
+    {
+      "type": "paragraph",
+      "text": "I read the function’s job first: stop if disabled; otherwise call onClose. useCallback caches the function reference when its dependencies stay the same. It does not call the function or make it run only once. The dependency array needs to match the values the callback reads from its surrounding scope."
+    },
+    {
+      "type": "heading",
+      "id": "shared-modal-state",
+      "text": "Connecting Separate Components with Zustand"
+    },
+    {
+      "type": "paragraph",
+      "text": "The sidebar button and login modal live in different components. A Zustand store lets them share an isOpen value and actions that update it."
+    },
+    {
+      "type": "code",
+      "code": "const loginModal = useLoginModal();\n\n// Inside a click handler:\nloginModal.onOpen();"
+    },
+    {
+      "type": "paragraph",
+      "text": "The parentheses on useLoginModal() matter: they call the hook and give the component access to the store. Calling onOpen changes shared state. The modal reads that state and decides whether to display itself."
+    },
+    {
+      "type": "paragraph",
+      "text": "Closing one modal and opening another switches between login and registration. Opening a modal changes interface state; router.push changes the page route. These are different actions."
+    },
+    {
+      "type": "heading",
+      "id": "loading-and-conditional-rendering",
+      "text": "Loading States and Conditional Rendering"
+    },
+    {
+      "type": "code",
+      "code": "if (!isOpen) {\n  return null;\n}"
+    },
+    {
+      "type": "paragraph",
+      "text": "Returning null tells React to render no visible content for the component. Hooks still need to be called consistently before conditional early returns."
+    },
+    {
+      "type": "paragraph",
+      "text": "Loading state can disable inputs and buttons while a request runs. try wraps the attempted operation, catch handles errors, and finally resets loading afterward. At this early tutorial stage, the forms were still interface scaffolding. Displaying a login form did not mean real authentication was connected yet."
+    },
+    {
+      "type": "heading",
+      "id": "tracing-the-flow",
+      "text": "Tracing the Whole Interaction"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Clicking Tweet calls the login store’s opening action.",
+        "The shared isOpen value changes.",
+        "The subscribed modal component renders the form.",
+        "Typing updates local form state.",
+        "Clicking the action button calls the supplied submission handler.",
+        "When a real request is added later, loading state can disable controls until it finishes."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Tracing that interaction connected several concepts that had felt separate: events, props, local state, shared state, and rendering."
+    },
+    {
+      "type": "heading",
+      "id": "practice-checkpoints",
+      "text": "Small Checkpoints for Reviewing"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Change a button’s actionLabel and trace which component supplies it and which displays it.",
+        "Translate five Tailwind classes into familiar CSS concepts.",
+        "Follow one input value from state through onChange and back to the next render.",
+        "Trace a sidebar click through the store to modal visibility.",
+        "Check which values a useCallback reads and compare them with its dependencies.",
+        "Ask whether a feature is only visible in the interface or also connected to server-side behavior."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "I do not need to memorize every line before moving forward. Being able to describe the job of a line, find where its values come from, and follow what happens next gives me a stronger starting point."
+    },
+    {
+      "type": "paragraph",
+      "text": "In the next post, Building a Twitter Clone: Connecting the Frontend to the Backend, I look at the completed application and the work that followed: accounts, database connections, images, posts, likes, replies, and notifications."
+    },
+    {
+      "type": "paragraph",
+      "text": "Tutorial credit: Code With Antonio’s Twitter clone tutorial — https://www.youtube.com/watch?v=ytkG7RT6SvU. These notes are a concept-based review of the early setup and interface work, not a complete transcript or an exact lesson-by-lesson inventory."
+    }
+  ]  
+},
+
+
+{
+  id: 15,
+  mileMarker: 16,
+  category: "PROJECTS",
+  title: "Building a Twitter Clone: Connecting the Frontend to the Backend",
+  excerpt: "Completing my Twitter clone introduced me to authentication, databases, image uploads, and the connections behind posts, likes, replies, and notifications.",
+  image: bloglandscape2,
+  imageAlt: "A timber trail bridge crossing an Alaskan gorge",
+  elevation: "1,200 ft",
+  readTime: "7 MIN READ",
+  comments: 0,
+  featured: false,
+  date: "November 13, 2026",
+  slug: "building-twitter-clone-frontend-backend",
+  content: [
+    {
+      type: "paragraph",
+      text: "Finishing my Twitter clone marked a new milestone in my coding journey. My previous projects helped me practice React components, styling, and requesting information from APIs. This project introduced me to building the server routes and database connections behind an application, too.",
+    },
+    {
+      type: "paragraph",
+      text: "I followed Code With Antonio’s Twitter clone tutorial to build the project, working through each feature and troubleshooting differences between the tutorial and my setup. Along the way, I connected user accounts, editable profiles, image uploads, posts, likes, replies, and notifications.",
+    },
+    {
+      type: "paragraph",
+      text: <><a href="https://my-twitter-clone.vercel.app/" target="_blank" rel="noopener noreferrer">View the live project</a>{" · "}<a href="https://github.com/cassiebezick/my-twitter-clone" target="_blank" rel="noopener noreferrer">Explore the GitHub repository</a></>,
+    },
+    {
+      type: "heading",
+      id: "mapping-out-the-application",
+      text: "Mapping Out the Application",
+    },
+    {
+      type: "paragraph",
+      text: "This project had more connected pieces than anything I had built before. Breaking it into smaller sections helped me understand each part’s purpose.",
+    },
+    {
+      type: "table",
+      caption: "The parts of my Twitter clone",
+      headers: ["Part", "What I built and practiced"],
+      rows: [
+        ["Layout and navigation", "A shared page layout with a sidebar, navigation links, and a suggested-users area."],
+        ["Reusable components", "Buttons, inputs, avatars, headers, and modals used throughout the application."],
+        ["User accounts", "Registration, login, logout, and checking which user is signed in."],
+        ["User profiles", "Profile pages with names, usernames, bios, images, and follower information."],
+        ["Profile editing", "A modal for updating profile details, a profile photo, and a cover image."],
+        ["Following", "Following and unfollowing other users."],
+        ["Posts", "Creating posts and displaying them in feeds and on individual post pages."],
+        ["Likes", "Toggling a heart icon and displaying the number of likes."],
+        ["Comments", "Adding replies and displaying them beneath a post."],
+        ["Notifications", "Displaying notifications about activity in the application."],
+        ["Deployment", "Publishing the completed project with Vercel."],
+      ],
+    },
+    {
+      type: "heading",
+      id: "building-reusable-components",
+      text: "Building the Interface with Reusable Components",
+    },
+    {
+      type: "paragraph",
+      text: "One of the first lessons was how much a larger application benefits from reusable components. Instead of creating a different modal for every interaction, the project uses a shared modal component. Login, registration, and profile editing supply their own content and actions.",
+    },
+    {
+      type: "paragraph",
+      text: "Buttons and inputs follow the same idea. Props let each component adapt to its situation while keeping its basic appearance and behavior consistent.",
+    },
+    {
+      type: "paragraph",
+      text: "TypeScript interfaces helped describe those props. A line such as onClose: () => void started to make more sense when I could connect it to a specific action: the parent supplies a function, and the modal calls it when it needs to close.",
+    },
+    {
+      type: "heading",
+      id: "accounts-and-authentication",
+      text: "Understanding Accounts and Authentication",
+    },
+    {
+      type: "paragraph",
+      text: "Authentication was one of the biggest new concepts for me. The registration process stores a user in the database with a hashed password. During login, the application checks the supplied credentials. A session then allows the application to recognize the signed-in user across requests.",
+    },
+    {
+      type: "paragraph",
+      text: "I also learned why the server needs to check authentication before allowing changes. Showing an edit button in the interface is only one part of the feature. The server must verify who is making the request before updating a profile or creating a post.",
+    },
+    {
+      type: "heading",
+      id: "connecting-to-the-database",
+      text: "Connecting the Interface to the Database",
+    },
+    {
+      type: "paragraph",
+      text: "The application helped me understand how frontend and backend code work together. When someone creates a post, the process looks like this:",
+    },
+    {
+      type: "list",
+      items: [
+        "1. The form stores their text in React state.",
+        "2. Axios sends that text to an API route.",
+        "3. The server checks the signed-in user.",
+        "4. Prisma creates the post in MongoDB.",
+        "5. The interface requests updated data and displays the new post.",
+      ],
+    },
+    {
+      type: "paragraph",
+      text: "Following this process made API routes feel more concrete. They are the server-side places where my application receives requests, checks information, and performs database operations.",
+    },
+    {
+      type: "paragraph",
+      text: "Prisma also helped me work with relationships: a post belongs to a user, comments connect to posts, and likes keep track of the users who liked a post.",
+    },
+    {
+      type: "heading",
+      id: "images-and-base64",
+      text: "Learning About Images and Base64",
+    },
+    {
+      type: "paragraph",
+      text: "Profile images introduced another unfamiliar concept: Base64. For this tutorial, selected images are converted into text strings that can be previewed in the browser and sent with the profile information. React Dropzone handles selecting or dragging an image into the upload area.",
+    },
+    {
+      type: "paragraph",
+      text: "This feature also taught me that image size affects requests. My upload initially failed with a 413 error because the request exceeded the API route’s body-size limit. Adjusting that limit allowed the image to save.",
+    },
+    {
+      type: "heading",
+      id: "keeping-the-screen-updated",
+      text: "Keeping the Screen Updated",
+    },
+    {
+      type: "paragraph",
+      text: "Saving information to the database does not automatically update everything already displayed in the browser. SWR helped manage fetching and refreshing data. After an action such as creating a post or liking one, calling mutate() tells SWR to refresh the relevant information.",
+    },
+    {
+      type: "paragraph",
+      text: "I began to see the difference between local form state—such as the text someone is typing—and saved data retrieved from the server.",
+    },
+    {
+      type: "heading",
+      id: "debugging-lessons",
+      text: "Debugging Lessons Along the Trail",
+    },
+    {
+      type: "paragraph",
+      text: "Some of my most useful learning happened when something did not work.",
+    },
+    {
+      type: "list",
+      items: [
+        "A misplaced brace changed the program’s behavior. My profile update was inside the wrong conditional block, so valid information skipped the database update.",
+        "Empty inputs still need consistent values. Using ?? '' prevented missing profile information from becoming null or undefined input values.",
+        "Authentication errors needed server-side investigation. A generic browser message led me to the terminal, where I found the session problem and updated the authentication helper.",
+        "One missing slash changed an API address. Writing api/like instead of /api/like sent the request to the wrong location.",
+        "The right data matters as much as the right styling. My heart icon updated, but its count displayed comments because I had referenced the wrong array.",
+      ],
+    },
+    {
+      type: "paragraph",
+      text: "These issues encouraged me to read error messages more carefully and trace a feature through its components, hooks, API route, and database operation.",
+    },
+    {
+      type: "heading",
+      id: "technologies-used-and-practiced",
+      text: "Technologies I Used and Practiced",
+    },
+    {
+      type: "table",
+      caption: "The technologies behind the project",
+      headers: ["Technology", "Its role in the project"],
+      rows: [
+        ["React", "Building components and managing interface state."],
+        ["Next.js Pages Router", "Organizing pages, dynamic routes, and server-side API routes."],
+        ["TypeScript", "Describing props, function parameters, and expected values."],
+        ["Tailwind CSS", "Styling layouts, responsive behavior, and interactive states."],
+        ["MongoDB", "Storing users, posts, comments, and notifications."],
+        ["Prisma", "Defining data models and reading or changing database records."],
+        ["NextAuth.js", "Managing authentication and sessions."],
+        ["bcrypt", "Hashing passwords and comparing login passwords with stored hashes."],
+        ["Axios", "Sending requests from the interface to API routes."],
+        ["SWR", "Fetching, caching, and refreshing server data."],
+        ["Zustand", "Sharing modal state across components."],
+        ["React Dropzone", "Handling image selection and drag-and-drop input."],
+        ["React Hot Toast", "Showing success and error messages."],
+        ["date-fns", "Formatting dates and displaying how long ago posts were created."],
+        ["React Icons and React Spinners", "Adding icons and loading indicators."],
+        ["Git, GitHub, and Vercel", "Tracking changes, storing the code, and deploying the application."],
+      ],
+    },
+    {
+      type: "heading",
+      id: "what-im-taking-forward",
+      text: "What I’m Taking Forward",
+    },
+    {
+      type: "paragraph",
+      text: "I finished this project with a better understanding of how a full-stack application fits together. I am still learning the individual tools, but I can now follow more of the path from a user clicking a button to information being saved and displayed.",
+    },
+    {
+      type: "paragraph",
+      text: "Following the tutorial gave me a structure to work within. Debugging my own version gave me opportunities to slow down, ask questions, and understand why the code behaved the way it did.",
+    },
+    {
+      type: "paragraph",
+      text: "This was another stretch of the trail where the concepts became clearer through building—and through fixing what broke.",
+    },
+    {
+      type: "paragraph",
+      text: <>Tutorial credit: This project follows <a href="https://www.youtube.com/watch?v=ytkG7RT6SvU" target="_blank" rel="noopener noreferrer">Code With Antonio’s Twitter clone tutorial</a>. This post documents my experience completing the project and working through the concepts.</>,
+    },
+  ],
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
 ];
