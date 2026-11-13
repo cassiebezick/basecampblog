@@ -3367,7 +3367,7 @@ export const postsData = [
 
 {
   id: 15,
-  mileMarker: 16,
+  mileMarker: 14,
   category: "PROJECTS",
   title: "Building a Twitter Clone: Connecting the Frontend to the Backend",
   excerpt: "Completing my Twitter clone introduced me to authentication, databases, image uploads, and the connections behind posts, likes, replies, and notifications.",
