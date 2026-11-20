@@ -3574,7 +3574,10 @@ export const postsData = [
     {
       type: "paragraph",
       text: <>Tutorial credit: This project follows <a href="https://www.youtube.com/watch?v=ytkG7RT6SvU" target="_blank" rel="noopener noreferrer">Code With Antonio’s Twitter clone tutorial</a>. This post documents my experience completing the project and working through the concepts.</>,
+    }, 
+    ], 
     },
+
 
 
   {
@@ -3792,9 +3795,7 @@ export const postsData = [
   ],
 },
 
-  ],
-  
-},
+
 
 
 
