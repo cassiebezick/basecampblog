@@ -16,6 +16,7 @@ import blogimagenewblocks from "../assets/blogimagenewblocks.png";
 import blogimagetrailbridge from "../assets/blogimagetrailbridge.png";
 import bloglandscapeimage1 from "../assets/bloglandscapeimage1.png";
 import bloglandscape2 from "../assets/bloglandscape2.png";
+import mountainmovie from "../assets/mountainmovieblog.png";
 
 
 export const postsData = [
@@ -3575,6 +3576,222 @@ export const postsData = [
       text: <>Tutorial credit: This project follows <a href="https://www.youtube.com/watch?v=ytkG7RT6SvU" target="_blank" rel="noopener noreferrer">Code With Antonio’s Twitter clone tutorial</a>. This post documents my experience completing the project and working through the concepts.</>,
     },
   ],
+
+  {
+  id: 16,
+  mileMarker: 15,
+  category: "PROJECTS",
+  title: "Building Scene Scout, My React Movie Search App",
+  excerpt:
+    "How I built a React movie search app with OMDb, connected search results to individual movie pages, and fixed a blank screen caused by a loading state.",
+  image: mountainmovie,
+  imageAlt: "A laptop and notebook with a mountain backdrop",
+  elevation: "1,250 ft",
+  readTime: "4 MIN READ",
+  comments: 0,
+  featured: false,
+  date: "November 20, 2026",
+  slug: "building-scene-scout",
+  content: [
+    {
+      type: "paragraph",
+      text: (
+        <>
+          When I started Scene Scout, I already knew what I wanted it to look
+          like. I had a dark movie grid, an orange accent color, and a
+          black-and-white mountain backdrop. I’d even made a fictional movie
+          called <em>Northbound</em> so I could design the cards and detail page
+          before connecting the API.
+        </>
+      ),
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          The turning point was replacing that sample card with real search
+          results. Once I could search for <em>The Avengers</em>, click the 2012
+          film, and see its actual cast and synopsis, I could finally trace how
+          the pieces of the app worked together.
+        </>
+      ),
+    },
+    {
+      type: "heading",
+      id: "from-javascript-to-react",
+      text: "From a JavaScript Project to a React App",
+    },
+    {
+      type: "paragraph",
+      text: "Scene Scout was my Frontend Simplified React final project. The assignment was to rebuild a movie search site in React and add a dedicated page for each movie.",
+    },
+    {
+      type: "paragraph",
+      text: "Breaking the site into components helped me see where each part of the work belonged. The header handles the search form. The homepage reads the search and loads the results. The grid controls their order, and each card displays one movie. The detail page takes over when a visitor selects a film.",
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          I could build the layout with sample data first, then connect real
+          data piece by piece. The <em>Northbound</em> mockup gave me something
+          to compare against as I started working with posters, titles, and
+          descriptions coming back from OMDb.
+        </>
+      ),
+    },
+    {
+      type: "heading",
+      id: "letting-the-url-remember-the-search",
+      text: "Letting the URL Remember the Search",
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          I used two pieces of information in the URL. The first is the{" "}
+          <strong>search query</strong>. When someone submits{" "}
+          <code>avengers</code>, the homepage URL becomes{" "}
+          <code>/?q=avengers</code>. React reads that query and loads the
+          matching movies. Opening the same URL again runs the same search.
+        </>
+      ),
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          The second is the <strong>IMDb ID</strong>. When someone opens a card,
+          the ID goes into a path such as <code>/movies/tt0848228</code>. The
+          detail page reads that ID and requests the full movie record. This
+          came in handy when searching <code>avengers</code> returned two films
+          called <em>The Avengers</em>. Their titles matched, but their IDs
+          pointed to different movies.
+        </>
+      ),
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          I carried the search query into the detail URL too. That lets{" "}
+          <strong>Back to movies</strong> rebuild the previous search even after
+          someone refreshes the detail page.
+        </>
+      ),
+    },
+    {
+      type: "heading",
+      id: "making-two-requests-to-omdb",
+      text: "Making Two Requests to OMDb",
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          I used one OMDb request to <strong>search by title</strong> and
+          another to <strong>look up a movie by ID</strong>. The search gives
+          me what I need for the cards, including the title, year, poster, and
+          IMDb ID. The ID lookup gives the detail page its synopsis, runtime,
+          cast, and rating.
+        </>
+      ),
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          Both requests go through a Vercel function, which reads the API key
+          on the server. Testing that function directly helped me understand
+          what each error was telling me. When I saw{" "}
+          <code>Invalid API key!</code>, I knew the request had made it all the
+          way to OMDb. I activated the key from the email, tried the same
+          request again, and finally saw the movie results come back.
+        </>
+      ),
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          I also learned that OMDb’s title search needs a search term. For the
+          homepage, I chose <code>mountains</code> as a starter search. It fits
+          the design and gives visitors real movies to browse as soon as the
+          app loads.
+        </>
+      ),
+    },
+    {
+      type: "heading",
+      id: "what-a-blank-page-taught-me",
+      text: "What a Blank Page Taught Me About Loading States",
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          At one point, the deployed site showed a blank page even though the
+          API was returning movies. The crash happened on the{" "}
+          <strong>first render</strong>, while the app was still waiting for
+          those results.
+        </>
+      ),
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          I had written code to build six skeleton cards during loading, but
+          the JSX still tried to call <code>movies.map()</code> before{" "}
+          <code>movies</code> existed. I fixed it by having the grid render the{" "}
+          <code>cards</code> variable I’d already prepared. That variable holds
+          skeletons while the request is pending and real cards once the
+          results arrive.
+        </>
+      ),
+    },
+    {
+      type: "paragraph",
+      text: "The same fix helped me connect sorting to what was actually on screen. I sorted a copy of the results and rendered the cards from that copy. Now changing the dropdown reorders the movies already in the grid without making another API request.",
+    },
+    {
+      type: "heading",
+      id: "what-im-taking-into-my-next-project",
+      text: "What I’m Taking Into My Next Project",
+    },
+    {
+      type: "paragraph",
+      text: "Before Scene Scout, I understood components, state, routing, and API requests best as separate exercises. This project gave me a way to see them in the same interaction. A search changes the URL. The URL determines what to fetch. The response gives React something to render.",
+    },
+    {
+      type: "paragraph",
+      text: "That’s also the order I’d use to debug it again. If I search for a movie and the grid stays blank, I know to check the URL first, then the API response, then what the component renders while it waits.",
+    },
+    {
+      type: "paragraph",
+      text: (
+        <>
+          <a
+            href="https://final-react-project-fes.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explore Scene Scout
+          </a>
+          {" · "}
+          <a
+            href="https://github.com/cassiebezick/final-react-project-fes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View the code on GitHub
+          </a>
+        </>
+      ),
+    },
+  ],
+},
+
 },
 
 
